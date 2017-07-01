@@ -1,0 +1,22 @@
+@import "variables";
+@import "bootstrap-imports";
+
+.site-title {
+  display: flex;
+  justify-content: center;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: auto -10px;
+
+  a {
+    display: flex;
+    margin: 10px;
+  }
+}
+
+@import "ember-cli-bootstrap-4/bootstrap";

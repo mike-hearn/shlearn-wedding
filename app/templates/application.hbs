@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="nav-links">
+  </div>
+  <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">Navbar</a>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        {{#link-to 'index' tagName='li' class='nav-item'}}
+          {{link-to 'Home' 'index' class='nav-link'}}
+        {{/link-to}}
+        {{#link-to 'wedding-weekend' tagName='li' class='nav-item'}}
+          {{link-to "Wedding Weekend" 'wedding-weekend' class='nav-link'}}
+        {{/link-to}}
+        {{#link-to 'where-to-stay' tagName='li' class='nav-item'}}
+          {{link-to 'Where to Stay' 'where-to-stay' class='nav-link'}}
+        {{/link-to}}
+        {{#link-to 'where-to-play' tagName='li' class='nav-item'}}
+          {{link-to 'Where to Play' 'where-to-play' class='nav-link'}}
+        {{/link-to}}
+        {{#link-to 'people' tagName='li' class='nav-item'}}
+          {{link-to 'People' 'people' class='nav-link'}}
+        {{/link-to}}
+        {{#link-to 'photos' tagName='li' class='nav-item'}}
+          {{link-to 'Photos' 'photos' class='nav-link'}}
+        {{/link-to}}
+        {{#link-to 'rsvp' tagName='li' class='nav-item'}}
+          {{link-to 'RSVP' 'rsvp' class='nav-link'}}
+        {{/link-to}}
+        {{#link-to 'registry' tagName='li' class='nav-item'}}
+          {{link-to 'Registry' 'registry' class='nav-link'}}
+        {{/link-to}}
+      </ul>
+    </div>
+  </nav>
+  <div class="site-title">
+    <h1>Ashley &amp; Mike</h1>
+  </div>
+  {{outlet}}
+</div>
