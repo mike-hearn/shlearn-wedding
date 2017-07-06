@@ -33,6 +33,7 @@
     "ember-cli-release": "^1.0.0-beta.2",
     "ember-cli-sass": "^6.2.0",
     "ember-cli-sri": "^2.1.0",
+    "ember-cli-sticky": "^0.6.3",
     "ember-cli-test-loader": "^2.1.0",
     "ember-cli-uglify": "^1.2.0",
     "ember-data": "^2.14.3",

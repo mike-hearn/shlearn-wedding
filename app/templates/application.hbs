@@ -1,11 +1,13 @@
 
+<div class="site-title">
+  <h1 class="ashley-and-mike-header">Ashley &amp; Mike</h1>
+</div>
+{{partial 'nav'}}
 <div class="container">
-  <div class="site-title">
-    <h1 class="ashley-and-mike-header">Ashley &amp; Mike</h1>
-  </div>
-  {{partial 'nav'}}
-  <img src="/static/collage.png" width="70%"/>
-  <div class="page-content">
-    {{outlet}}
+  <div class="cross-page-style">
+    {{!--  <img src="/static/collage.png" width="70%"/>  --}}
+    <div class="page-content">
+      {{outlet}}
+    </div>
   </div>
 </div>

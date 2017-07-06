@@ -7,7 +7,6 @@
   display: flex;
   justify-content: space-around;
   width: 100%;
-  margin-top: 5%;
 }
 
 .site-title {
@@ -40,10 +39,11 @@ body {
 .ashley-and-mike-header {
   font: 400 120px 'Mrs Saint Delafield';
   text-shadow: 0px 0px 30px black;
-  padding: 3% 0px;
+  padding: 2rem 0 0 0;
+  margin-bottom: -2rem;
 }
 
-.container {
+.cross-page-style {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -54,10 +54,10 @@ body {
   background-image: url("https://www.transparenttextures.com/patterns/paper.png");
 
   /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
-  width: 60%;
+  width: 80%;
   color: #000;
   background-color: #fff;
-  padding: 25px;
+  padding: 30px;
   box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.2);
   margin-bottom: 10%;
 }
