@@ -8,6 +8,10 @@ module.exports = function(defaults) {
       'bootstrapVersion': 4,
       'importBootstrapFont': false,
       'importBootstrapCSS': false
+    },
+    autoprefixer: {
+      browsers: ['last 2 ios version'],
+      cascade: false
     }
   });
 
