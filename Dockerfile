@@ -11,4 +11,4 @@ RUN yarn
 
 ADD . /app/
 
-CMD PORT=8000 node server.js
+CMD PORT=8000 node fastboot-server.js
