@@ -1,13 +1,18 @@
-
 <div class="site-title">
-  <h1 class="ashley-and-mike-header"><span>Ashley</span> <span>&amp;</span> <span>Mike</span></h1>
+  <h1 class="ashley-and-mike-header">
+    <a href="/">
+      <span class="ashley-and-mike-header--ashley">Ashley</span>
+      <span class="ashley-and-mike-header--and">&amp;</span>
+      <span class="ashley-and-mike-header--mike">Mike</span>
+    </a>
+  </h1>
 </div>
 {{partial 'nav'}}
 <div class="container">
   <div class="cross-page-style">
-    {{!--  <img src="/static/collage.png" width="70%"/>  --}}
     <div class="page-content">
       {{outlet}}
     </div>
   </div>
 </div>
+<p class="footer-text">Website designed by the bride and groom.</p>

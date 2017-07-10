@@ -3,10 +3,14 @@
 
 @import "nav";
 
-
 body {
   background: url(/static/Wood_Background.jpg) no-repeat center center fixed;
   background-size: cover;
+
+  @include media-breakpoint-between(xs, sm) {
+    background: url(/static/Wood_Background-tiled.jpg);
+    background-size: 200%;
+  }
 }
 
 .ashley-and-mike-header {
@@ -15,9 +19,14 @@ body {
   padding: 2rem 0 0 0;
   margin-bottom: -2rem;
 
+  a {
+    color: white;
+    text-decoration: none;
+  }
+
   @include media-breakpoint-between(xs, sm) {
     font: 400 4rem 'Mrs Saint Delafield';
-    margin-bottom: 1rem;
+    margin-bottom: 0.3rem;
   }
 }
 
@@ -37,7 +46,7 @@ body {
   background-color: #fff;
   padding: 30px;
   box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.2);
-  margin-bottom: 10%;
+  margin-bottom: 3%;
 }
 
 .home {
@@ -53,4 +62,57 @@ h2 {
   margin: 1rem auto;
   display: block;
   max-width: 95%;
+}
+
+.wedding-weekend {
+  h3 {
+    margin-top: 2rem;
+    text-decoration: underline;
+  }
+
+  h4 {
+    margin-top: 2rem;
+  }
+
+  .agenda {
+    text-align: center;
+  }
+}
+
+.to-come {
+  text-align: center;
+}
+
+.footer-text {
+  font-size: 0.7em;
+  font-style: italic;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 1% auto;
+}
+
+.wedding-party-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+
+  .party-member {
+    display: flex;
+    flex: 0 0 100%;
+    margin-bottom: 1rem;
+
+    @include media-breakpoint-up(md) {
+      flex: 0 0 34%;
+    }
+  }
+
+  .title {
+    font-weight: 700;
+  }
+
+  .photo {
+    width: 100px;
+    height: 100px;
+    margin: 0 20px 20px 0;
+  }
 }

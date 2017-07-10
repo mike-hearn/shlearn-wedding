@@ -7,6 +7,19 @@
   transition: all 0.2s ease;
 }
 
+.nav-item {
+  @include media-breakpoint-between(sm, md) {
+    flex: 1 1 25%;
+    font-size: 0.9em;
+    text-align: center;
+  }
+  @include media-breakpoint-between(xs, sm) {
+    flex: 1 1 50%;
+    font-size: 0.9em;
+    text-align: center;
+  }
+}
+
 .navbar-nav {
   display: flex;
   flex-flow: row wrap;
