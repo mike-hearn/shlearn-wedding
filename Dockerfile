@@ -1,14 +1,16 @@
 FROM node
 
-RUN useradd -ms /bin/bash appuser
-RUN mkdir /app && chown -R appuser:appuser /app
-
-USER appuser
+WORKDIR /app
 
 ADD package.json /app/package.json
-WORKDIR /app
+ADD yarn.lock /app/yarn.lock
 RUN yarn
 
 ADD . /app/
+RUN yarn run build
+
+RUN useradd -ms /bin/bash appuser
+RUN chown -R appuser:appuser /app
+USER appuser
 
 CMD PORT=8000 node fastboot-server.js
