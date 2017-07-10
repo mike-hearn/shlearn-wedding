@@ -26,7 +26,7 @@ body {
 
   @include media-breakpoint-between(xs, sm) {
     font: 400 4rem 'Mrs Saint Delafield';
-    margin-bottom: 0.3rem;
+    margin-bottom: -1rem;
   }
 }
 
@@ -114,5 +114,19 @@ h2 {
     width: 100px;
     height: 100px;
     margin: 0 20px 20px 0;
+  }
+}
+
+.grafton-legend--header {
+  text-align: center;
+  text-decoration: underline;
+}
+.grafton-legend {
+  width: 60%;
+  margin: 0 auto;
+  display: block;
+
+  @include media-breakpoint-down(md) {
+    width: 100%;
   }
 }
