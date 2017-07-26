@@ -99,10 +99,15 @@ h2 {
   .party-member {
     display: flex;
     flex: 0 0 100%;
+    justify-content: center;
     margin-bottom: 1rem;
 
     @include media-breakpoint-up(md) {
-      flex: 0 0 34%;
+      flex: 0 0 49%;
+    }
+
+    .text-container {
+      width: 170px;
     }
   }
 
