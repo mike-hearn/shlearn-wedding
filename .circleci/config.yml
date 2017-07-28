@@ -35,6 +35,6 @@ jobs:
           docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
           docker push mikehearn/shlearn-wedding:latest
           docker push mikehearn/shlearn-wedding:$TAG
-          ssh $SITE_USER@$SITE_SERVER docker pull mikehearn/shlearn-wedding
-          ssh $SITE_USER@$SITE_SERVER docker stack deploy --compose-file repos/shlearn-wedding/docker-compose.yml shlearn_wedding
+          ssh -o "StrictHostKeyChecking no" $SITE_USER@$SITE_SERVER docker pull mikehearn/shlearn-wedding
+          ssh -o "StrictHostKeyChecking no" $SITE_USER@$SITE_SERVER docker stack deploy --compose-file repos/shlearn-wedding/docker-compose.yml shlearn_wedding
 
