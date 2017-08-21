@@ -50,7 +50,26 @@ body {
 }
 
 .home {
-  text-align: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+
+  .main-image {
+    height: 50vh;
+    box-shadow: 0 0 20px;
+  }
+
+  .home-info {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 400px;
+    text-align: center;
+    max-width: 90%;
+  }
+
+  .home-photo {}
 }
 
 h2 {
@@ -106,6 +125,7 @@ h2 {
       flex: 0 0 49%;
     }
 
+
     .text-container {
       width: 170px;
     }
@@ -126,6 +146,7 @@ h2 {
   text-align: center;
   text-decoration: underline;
 }
+
 .grafton-legend {
   width: 60%;
   margin: 0 auto;
