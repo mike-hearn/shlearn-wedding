@@ -18,10 +18,16 @@ body {
   text-shadow: 0px 0px 30px black;
   padding: 2rem 0 0 0;
   margin-bottom: -2rem;
+  width: 80%;
+  max-width: 600px;
 
   a {
     color: white;
     text-decoration: none;
+  }
+
+  .site-svg-header {
+    width: 100%;
   }
 
   @include media-breakpoint-between(xs, sm) {
