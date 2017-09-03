@@ -13,7 +13,7 @@ RUN chown -R appuser:appuser /app
 USER appuser
 
 # Add files & build app
-RUN yarn
+RUN yarn && bower install
 ADD . /app/
 RUN yarn run build
 
