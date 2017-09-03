@@ -1,8 +1,9 @@
 <h2>Photos</h2>
 <img class="vermont-divider" src="/static/vermontseparator.svg" alt="divider">
 <div>
-{{#photo-swipe class="photo-grid" hideZoomInOut=true items=model as |img|}}
-  <img class="thumb" src={{img.msrc}} alt={{img.title}} height="300">
-{{/photo-swipe}}
+  {{#photo-swipe class="photo-grid" hideZoomInOut=true items=model as |img|}}
+    <img class="thumb" src={{img.msrc}} alt={{img.title}} height="300">
+  {{/photo-swipe}}
+  <p class="garren-is-the-best">Photos: <a href="http://www.garrenteephotography.com/" target="_blank">GarrenTee Photography</a></p>
 </div>
 

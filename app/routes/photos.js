@@ -8,10 +8,10 @@ var items = [
     msrc: "/static/website_photos/7G9A2392.jpg-thumb.jpg"
   },
   {
-    src: "/static/website_photos/7G9A2404.jpg",
+    src: "/static/website_photos/MO8A4669.jpg",
+    msrc: "/static/website_photos/MO8A4669.jpg-thumb.jpg",
     w: 3960,
-    h: 2640,
-    msrc: "/static/website_photos/7G9A2404.jpg-thumb.jpg"
+    h: 2640
   },
   {
     src: "/static/website_photos/7G9A2420.jpg",
@@ -26,8 +26,8 @@ var items = [
     msrc: "/static/website_photos/IMG_8709.jpg-thumb.jpg"
   },
   {
-    src: "/static/website_photos/MAIN PAGE.jpg",
-    msrc: "/static/website_photos/MAIN PAGE.jpg-thumb.jpg",
+    src: "/static/website_photos/MO8A3690e.jpg",
+    msrc: "/static/website_photos/MO8A3690e.jpg-thumb.jpg",
     h: 3960,
     w: 2640
   },
@@ -38,8 +38,8 @@ var items = [
     w: 2640
   },
   {
-    src: "/static/website_photos/MO8A3690e.jpg",
-    msrc: "/static/website_photos/MO8A3690e.jpg-thumb.jpg",
+    src: "/static/website_photos/MAIN PAGE.jpg",
+    msrc: "/static/website_photos/MAIN PAGE.jpg-thumb.jpg",
     h: 3960,
     w: 2640
   },
@@ -50,8 +50,8 @@ var items = [
     w: 2640
   },
   {
-    src: "/static/website_photos/MO8A3771.jpg",
-    msrc: "/static/website_photos/MO8A3771.jpg-thumb.jpg",
+    src: "/static/website_photos/MO8A4512.jpg",
+    msrc: "/static/website_photos/MO8A4512.jpg-thumb.jpg",
     h: 3960,
     w: 2640
   },
@@ -74,20 +74,8 @@ var items = [
     w: 2640
   },
   {
-    src: "/static/website_photos/MO8A4377.jpg",
-    msrc: "/static/website_photos/MO8A4377.jpg-thumb.jpg",
-    h: 3960,
-    w: 2640
-  },
-  {
     src: "/static/website_photos/MO8A4433.jpg",
     msrc: "/static/website_photos/MO8A4433.jpg-thumb.jpg",
-    h: 3960,
-    w: 2640
-  },
-  {
-    src: "/static/website_photos/MO8A4512.jpg",
-    msrc: "/static/website_photos/MO8A4512.jpg-thumb.jpg",
     h: 3960,
     w: 2640
   },
@@ -98,10 +86,22 @@ var items = [
     w: 2640
   },
   {
-    src: "/static/website_photos/MO8A4669.jpg",
-    msrc: "/static/website_photos/MO8A4669.jpg-thumb.jpg",
+    src: "/static/website_photos/MO8A3771.jpg",
+    msrc: "/static/website_photos/MO8A3771.jpg-thumb.jpg",
+    h: 3960,
+    w: 2640
+  },
+  {
+    src: "/static/website_photos/MO8A4377.jpg",
+    msrc: "/static/website_photos/MO8A4377.jpg-thumb.jpg",
+    h: 3960,
+    w: 2640
+  },
+  {
+    src: "/static/website_photos/7G9A2404.jpg",
     w: 3960,
-    h: 2640
+    h: 2640,
+    msrc: "/static/website_photos/7G9A2404.jpg-thumb.jpg"
   },
   {
     src: "/static/website_photos/MO8A4785.jpg",
