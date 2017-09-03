@@ -18,6 +18,13 @@
     font-size: 0.9em;
     text-align: center;
   }
+
+  a {
+    color: darken($white, 25%);
+  }
+  a.active {
+    color: $white;
+  }
 }
 
 .navbar-nav {

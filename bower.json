@@ -1,0 +1,6 @@
+{
+  "name": "shlearn-wedding",
+  "dependencies": {
+    "photoswipe": "4.1.0"
+  }
+}
