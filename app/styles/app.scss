@@ -2,6 +2,7 @@
 @import "ember-bootstrap/bootstrap";
 
 @import "nav";
+@import "photos";
 
 body {
   background: url(/static/Wood_Background.jpg) no-repeat center center fixed;
@@ -162,3 +163,4 @@ h2 {
     width: 100%;
   }
 }
+

@@ -1,7 +1,7 @@
 <h2>Photos</h2>
 <img class="vermont-divider" src="/static/vermontseparator.svg" alt="divider">
 <div>
-{{#photo-swipe hideZoomInOut=true items=model as |img|}}
+{{#photo-swipe class="photo-grid" hideZoomInOut=true items=model as |img|}}
   <img class="thumb" src={{img.msrc}} alt={{img.title}} height="300">
 {{/photo-swipe}}
 </div>

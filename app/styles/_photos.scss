@@ -1,0 +1,78 @@
+@mixin flex-grid($width, $height, $row_width) {
+  flex-grow: ($width/$height);
+  flex-shrink: 1;
+  flex-basis: 0%;
+  min-width: percentage($row_width);
+}
+
+.photo-grid {
+  display: flex;
+  flex-flow: row wrap;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  a {
+    padding: 5px;
+    min-width: 15%;
+  }
+}
+
+.photo-grid {
+  & a:nth-of-type(1) {
+    @include flex-grid(2640, 3960, 0.17)
+  }
+  & a:nth-of-type(2) {
+    @include flex-grid(3960, 2640, 0.35)
+  }
+  & a:nth-of-type(3) {
+    @include flex-grid(3960, 2640, 0.35)
+  }
+  & a:nth-of-type(4) {
+    @include flex-grid(4000, 3000, 0.35)
+  }
+  & a:nth-of-type(5) {
+    @include flex-grid(2640, 3960, 0.17)
+  }
+  & a:nth-of-type(6) {
+    @include flex-grid(2640, 3960, 0.17)
+  }
+  & a:nth-of-type(7) {
+    @include flex-grid(2640, 3960, 0.17)
+  }
+  & a:nth-of-type(8) {
+    @include flex-grid(2640, 3960, 0.17)
+  }
+  & a:nth-of-type(9) {
+    @include flex-grid(2640, 3960, 0.17)
+  }
+  & a:nth-of-type(10) {
+    @include flex-grid(3960, 2640, 0.35)
+  }
+  & a:nth-of-type(11) {
+    @include flex-grid(3960, 2640, 0.35)
+  }
+  & a:nth-of-type(12) {
+    @include flex-grid(2640, 3960, 0.17)
+  }
+  & a:nth-of-type(13) {
+    @include flex-grid(2640, 3960, 0.17)
+  }
+  & a:nth-of-type(14) {
+    @include flex-grid(2640, 3960, 0.17)
+  }
+  & a:nth-of-type(15) {
+    @include flex-grid(2640, 3960, 0.17)
+  }
+  & a:nth-of-type(16) {
+    @include flex-grid(2640, 3960, 0.17)
+  }
+  & a:nth-of-type(17) {
+    @include flex-grid(3960, 2640, 0.35)
+  }
+  & a:nth-of-type(18) {
+    @include flex-grid(2640, 3960, 0.17)
+  }
+}
