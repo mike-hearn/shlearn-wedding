@@ -1,9 +1,12 @@
-export default function(/* server */) {
-
+export default function(server) {
   /*
     Seed your development database using your factories.
     This data will not be loaded in your tests.
   */
 
-  // server.createList('post', 10);
+  let numberOfPeople = [1];
+  server.createList(
+    "person",
+    numberOfPeople[Math.floor(Math.random() * numberOfPeople.length)]
+  );
 }
