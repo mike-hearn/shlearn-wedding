@@ -5,27 +5,28 @@
 version: 2
 jobs:
   build:
-    machine:
-      enabled: true
+    docker:
+      - image: circleci/node:7.10
 
     working_directory: ~/repo
 
     steps:
       - checkout
+      - setup_remote_docker:
+          version: 17.06.0-ce
       - run: |
-          TAG=0.1.$CIRCLE_SHA1
-          # docker build -t   mikehearn/shlearn-wedding:latest .
+          TAG=$CIRCLE_SHA1
+          docker build -t   mikehearn/shlearn-wedding:latest .
           docker build -t   mikehearn/shlearn-wedding:$TAG .
 
   test:
-    machine:
-      enable: true
+    docker:
+      - image: circleci/node:7.10
 
     working_directory: ~/repo
     steps:
-      - checkout
       - run: |
-          TAG=0.1.$CIRCLE_SHA1
+          TAG=$CIRCLE_SHA1
           docker run --rm -ti --cap-add=SYS_ADMIN mikehearn/shlearn-wedding:$TAG yarn test
 
   deploy:
