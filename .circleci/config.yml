@@ -12,8 +12,6 @@ jobs:
 
     steps:
       - checkout
-      - setup_remote_docker:
-          version: 17.06.0-ce
       - run: |
           TAG=$CIRCLE_SHA1
           docker build -t   mikehearn/shlearn-wedding:$TAG .
@@ -27,8 +25,6 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
-      - setup_remote_docker:
-          version: 17.06.0-ce
       - run: |
           TAG=$CIRCLE_SHA1
           docker pull mikehearn/shlearn-wedding:$TAG
