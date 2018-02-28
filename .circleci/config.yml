@@ -5,8 +5,8 @@
 version: 2
 jobs:
   build:
-    docker:
-      - image: circleci/node:7.10
+    machine:
+      enabled: true
 
     working_directory: ~/repo
 
@@ -16,12 +16,12 @@ jobs:
           version: 17.06.0-ce
       - run: |
           TAG=0.1.$CIRCLE_BUILD_NUM
-          docker build -t   mikehearn/shlearn-wedding:latest .
+          # docker build -t   mikehearn/shlearn-wedding:latest .
           docker build -t   mikehearn/shlearn-wedding:$TAG .
 
   test:
-    docker:
-      - image: circleci/node:7.10
+    machine:
+      enable: true
 
     working_directory: ~/repo
     steps:
