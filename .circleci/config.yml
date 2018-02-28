@@ -12,11 +12,13 @@ jobs:
 
     steps:
       - checkout
-      - run: |
-          TAG=$CIRCLE_SHA1
-          docker build -t   mikehearn/shlearn-wedding:$TAG .
-          docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
-          docker push mikehearn/shlearn-wedding:$TAG
+      - run:
+          name: Build & push Docker image
+          command: |
+            TAG=$CIRCLE_SHA1
+            docker build -t   mikehearn/shlearn-wedding:$TAG .
+            docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
+            docker push mikehearn/shlearn-wedding:$TAG
 
   test:
     machine:
@@ -25,10 +27,12 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
-      - run: |
-          TAG=$CIRCLE_SHA1
-          docker pull mikehearn/shlearn-wedding:$TAG
-          docker run --rm -ti --cap-add=SYS_ADMIN mikehearn/shlearn-wedding:$TAG yarn test
+      - run:
+          name: Run tests
+          command: |
+            TAG=$CIRCLE_SHA1
+            docker pull mikehearn/shlearn-wedding:$TAG
+            docker run --rm -ti --cap-add=SYS_ADMIN mikehearn/shlearn-wedding:$TAG yarn test
 
   deploy:
     machine:
