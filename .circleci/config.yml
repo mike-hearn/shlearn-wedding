@@ -13,10 +13,14 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Build & push Docker image
+          name: Build image
           command: |
             TAG=$CIRCLE_SHA1
             docker build -t   mikehearn/shlearn-wedding:$TAG .
+      - run:
+          name: Push image to Docker Hub
+          command: |
+            TAG=$CIRCLE_SHA1
             docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
             docker push mikehearn/shlearn-wedding:$TAG
 
