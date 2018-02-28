@@ -12,11 +12,17 @@ jobs:
 
     steps:
       - checkout
-      - run: |
-          TAG=$CIRCLE_SHA1
-          docker build -t   mikehearn/shlearn-wedding:$TAG .
-          docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
-          docker push mikehearn/shlearn-wedding:$TAG
+      - run:
+          name: Build image
+          command: |
+            TAG=$CIRCLE_SHA1
+            docker build -t   mikehearn/shlearn-wedding:$TAG .
+      - run:
+          name: Push image to Docker Hub
+          command: |
+            TAG=$CIRCLE_SHA1
+            docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
+            docker push mikehearn/shlearn-wedding:$TAG
 
   test:
     machine:
@@ -25,10 +31,12 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
-      - run: |
-          TAG=$CIRCLE_SHA1
-          docker pull mikehearn/shlearn-wedding:$TAG
-          docker run --rm -ti --cap-add=SYS_ADMIN mikehearn/shlearn-wedding:$TAG yarn test
+      - run:
+          name: Run tests
+          command: |
+            TAG=$CIRCLE_SHA1
+            docker pull mikehearn/shlearn-wedding:$TAG
+            docker run --rm -ti --cap-add=SYS_ADMIN mikehearn/shlearn-wedding:$TAG yarn test
 
   deploy:
     machine:
@@ -37,14 +45,19 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
-      - run: |
-          TAG=$CIRCLE_SHA1
-          docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
-          docker pull mikehearn/shlearn-wedding:$TAG
-          docker tag mikehearn/shlearn-wedding:$TAG mikehearn/shlearn-wedding:latest
-          docker push mikehearn/shlearn-wedding:latest
-          ssh -o "StrictHostKeyChecking no" $SITE_USER@$SITE_SERVER docker pull mikehearn/shlearn-wedding
-          ssh -o "StrictHostKeyChecking no" $SITE_USER@$SITE_SERVER docker stack deploy --compose-file repos/shlearn-wedding/docker-compose.yml shlearn_wedding
+      - run:
+          name: Push image with \'latest\' tag
+          command: |
+              TAG=$CIRCLE_SHA1
+              docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
+              docker pull mikehearn/shlearn-wedding:$TAG
+              docker tag mikehearn/shlearn-wedding:$TAG mikehearn/shlearn-wedding:latest
+              docker push mikehearn/shlearn-wedding:latest
+      - run:
+          name: Deploy swarm image to server
+          command: |
+              ssh -o "StrictHostKeyChecking no" $SITE_USER@$SITE_SERVER docker pull mikehearn/shlearn-wedding
+              ssh -o "StrictHostKeyChecking no" $SITE_USER@$SITE_SERVER docker stack deploy --compose-file repos/shlearn-wedding/docker-compose.yml shlearn_wedding
 
 workflows:
   version: 2
