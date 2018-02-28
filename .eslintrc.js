@@ -1,3 +1,4 @@
+// jshint ignore: start
 module.exports = {
   globals: {
     server: true,
