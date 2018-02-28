@@ -38,7 +38,7 @@ jobs:
     steps:
       - checkout
       - run: |
-          TAG=0.1.$CIRCLE_SHA1
+          TAG=$CIRCLE_SHA1
           docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
           docker pull mikehearn/shlearn-wedding:$TAG
           docker tag mikehearn/shlearn-wedding:$TAG mikehearn/shlearn-wedding:latest
