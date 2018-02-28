@@ -25,6 +25,7 @@ jobs:
 
     working_directory: ~/repo
     steps:
+      - checkout
       - run: |
           TAG=0.1.$CIRCLE_BUILD_NUM
           docker run --rm -ti --cap-add=SYS_ADMIN mikehearn/shlearn-wedding:$TAG yarn test
