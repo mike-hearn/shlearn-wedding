@@ -1,0 +1,106 @@
+=================================================================================
+
+ENV Summary:
+
+  TIME: Wed Feb 28 2018 22:53:58 GMT+0000 (UTC)
+  TITLE: ember
+  ARGV:
+  - /usr/bin/nodejs
+  - /home/mikehearn/Repos/Mine/shlearn-wedding/node_modules/.bin/ember
+  - serve
+  - --host=0.0.0.0
+  - --port=4200
+  - --live-reload-port=49159
+  EXEC_PATH: /usr/bin/nodejs
+  TMPDIR: /home/mikehearn/Repos/Mine/shlearn-wedding
+  SHELL: /bin/bash
+  PATH:
+  - /usr/lib/node_modules/npm/bin/node-gyp-bin
+  - /home/mikehearn/Repos/Mine/shlearn-wedding/node_modules/.bin
+  - /usr/local/sbin
+  - /usr/local/bin
+  - /usr/sbin
+  - /usr/bin
+  - /sbin
+  - /bin
+  PLATFORM: linux x64
+  FREEMEM: 1388933120
+  TOTALMEM: 33744683008
+  UPTIME: 932785
+  LOADAVG: 0.240234375,0.09130859375,0.0791015625
+  CPUS:
+  - AMD Ryzen 7 1700 Eight-Core Processor - 1477
+  - AMD Ryzen 7 1700 Eight-Core Processor - 1477
+  - AMD Ryzen 7 1700 Eight-Core Processor - 1477
+  - AMD Ryzen 7 1700 Eight-Core Processor - 1476
+  - AMD Ryzen 7 1700 Eight-Core Processor - 3054
+  - AMD Ryzen 7 1700 Eight-Core Processor - 3253
+  - AMD Ryzen 7 1700 Eight-Core Processor - 3279
+  - AMD Ryzen 7 1700 Eight-Core Processor - 3536
+  - AMD Ryzen 7 1700 Eight-Core Processor - 1474
+  - AMD Ryzen 7 1700 Eight-Core Processor - 1476
+  - AMD Ryzen 7 1700 Eight-Core Processor - 2963
+  - AMD Ryzen 7 1700 Eight-Core Processor - 2976
+  - AMD Ryzen 7 1700 Eight-Core Processor - 2968
+  - AMD Ryzen 7 1700 Eight-Core Processor - 2972
+  - AMD Ryzen 7 1700 Eight-Core Processor - 1474
+  - AMD Ryzen 7 1700 Eight-Core Processor - 1470
+  ENDIANNESS: LE
+  VERSIONS:
+  - ares: 1.10.1-DEV
+  - http_parser: 2.7.0
+  - icu: 56.1
+  - modules: 48
+  - node: 6.11.2
+  - openssl: 1.0.2l
+  - uv: 1.11.0
+  - v8: 5.1.281.103
+  - zlib: 1.2.11
+
+ERROR Summary:
+
+  - broccoliBuilderErrorStack: Error: Error: (en: "Choose file...") isn't a valid CSS value.
+        on line 514 of tmp/sass_compiler-input_base_path-62p46PZW.tmp/app/styles/_variables.scss
+>>   placeholder: (
+   ---------------^
+
+    at options.error (/home/mikehearn/Repos/Mine/shlearn-wedding/node_modules/node-sass/lib/index.js:291:26)
+  - codeFrame: Error: (en: "Choose file...") isn't a valid CSS value.
+        on line 514 of tmp/sass_compiler-input_base_path-62p46PZW.tmp/app/styles/_variables.scss
+>>   placeholder: (
+   ---------------^
+
+  - errorMessage: Build Canceled: Broccoli Builder ran into an error with `SassCompiler` plugin. 💥
+Error: (en: "Choose file...") isn't a valid CSS value.
+        on line 514 of tmp/sass_compiler-input_base_path-62p46PZW.tmp/app/styles/_variables.scss
+>>   placeholder: (
+   ---------------^
+
+  - errorType: Sass Syntax Error
+  - location:
+    - column: 16
+    - file: /home/mikehearn/Repos/Mine/shlearn-wedding/tmp/sass_compiler-input_base_path-62p46PZW.tmp/app/styles/_variables.scss
+    - line: 514
+    - treeDir: [undefined]
+  - message: Build Canceled: Broccoli Builder ran into an error with `SassCompiler` plugin. 💥
+Error: (en: "Choose file...") isn't a valid CSS value.
+        on line 514 of tmp/sass_compiler-input_base_path-62p46PZW.tmp/app/styles/_variables.scss
+>>   placeholder: (
+   ---------------^
+
+  - name: Error
+  - nodeAnnotation: SassCompiler
+  - nodeName: SassCompiler
+  - originalErrorMessage: Error: (en: "Choose file...") isn't a valid CSS value.
+        on line 514 of tmp/sass_compiler-input_base_path-62p46PZW.tmp/app/styles/_variables.scss
+>>   placeholder: (
+   ---------------^
+
+  - stack: Error: Error: (en: "Choose file...") isn't a valid CSS value.
+        on line 514 of tmp/sass_compiler-input_base_path-62p46PZW.tmp/app/styles/_variables.scss
+>>   placeholder: (
+   ---------------^
+
+    at options.error (/home/mikehearn/Repos/Mine/shlearn-wedding/node_modules/node-sass/lib/index.js:291:26)
+
+=================================================================================
