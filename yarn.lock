@@ -2467,7 +2467,7 @@ ember-cli-autoprefixer@^0.7.0:
     broccoli-autoprefixer "^4.1.0"
     lodash "^4.0.0"
 
-ember-cli-babel@^5.0.0:
+ember-cli-babel@^5.0.0, ember-cli-babel@^5.1.6:
   version "5.2.4"
   resolved "https://registry.yarnpkg.com/ember-cli-babel/-/ember-cli-babel-5.2.4.tgz#5ce4f46b08ed6f6d21e878619fb689719d6e8e13"
   dependencies:
@@ -2519,6 +2519,12 @@ ember-cli-dependency-checker@^2.0.0:
     is-git-url "^1.0.0"
     resolve "^1.5.0"
     semver "^5.3.0"
+
+ember-cli-document-title@^0.3.3:
+  version "0.3.3"
+  resolved "https://registry.yarnpkg.com/ember-cli-document-title/-/ember-cli-document-title-0.3.3.tgz#0441d64e3ab7a64b220f8c54a144ab927d6138af"
+  dependencies:
+    ember-cli-babel "^5.1.6"
 
 ember-cli-eslint@^4.2.1:
   version "4.2.3"
