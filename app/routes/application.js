@@ -1,8 +1,8 @@
-import Ember from "ember";
+import Route from '@ember/routing/route';
 
-export default Ember.Route.extend({
+export default Route.extend({
   init() {
-    return this._super();
+    this._super(...arguments);
   },
   title: function(tokens) {
     let title = "Ashley Mas & Michael Hearn's Wedding Website";

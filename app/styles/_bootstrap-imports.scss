@@ -1,36 +1,33 @@
-@import "ember-cli-bootstrap-4/custom";
-@import "ember-cli-bootstrap-4/variables";
-@import "ember-cli-bootstrap-4/mixins";
-
-// Reset and dependencies
-@import "ember-cli-bootstrap-4/normalize";
-@import "ember-cli-bootstrap-4/print";
-
-// Core CSS
-@import "ember-cli-bootstrap-4/reboot";
-@import "ember-cli-bootstrap-4/type";
-@import "ember-cli-bootstrap-4/images";
-@import "ember-cli-bootstrap-4/code";
-@import "ember-cli-bootstrap-4/grid";
-@import "ember-cli-bootstrap-4/tables";
-@import "ember-cli-bootstrap-4/forms";
-@import "ember-cli-bootstrap-4/buttons";
-
-// Components
-@import "ember-cli-bootstrap-4/dropdown";
-@import "ember-cli-bootstrap-4/button-group";
-@import "ember-cli-bootstrap-4/input-group";
-@import "ember-cli-bootstrap-4/custom-forms";
-@import "ember-cli-bootstrap-4/nav";
-@import "ember-cli-bootstrap-4/navbar";
-@import "ember-cli-bootstrap-4/card";
-@import "ember-cli-bootstrap-4/breadcrumb";
-@import "ember-cli-bootstrap-4/pagination";
-@import "ember-cli-bootstrap-4/jumbotron";
-@import "ember-cli-bootstrap-4/alert";
-@import "ember-cli-bootstrap-4/progress";
-@import "ember-cli-bootstrap-4/media";
-@import "ember-cli-bootstrap-4/list-group";
-@import "ember-cli-bootstrap-4/responsive-embed";
-@import "ember-cli-bootstrap-4/close";
-
+@import "../../node_modules/bootstrap/scss/mixins";
+@import "../../node_modules/bootstrap/scss/root";
+@import "../../node_modules/bootstrap/scss/reboot";
+@import "../../node_modules/bootstrap/scss/type";
+@import "../../node_modules/bootstrap/scss/images";
+@import "../../node_modules/bootstrap/scss/code";
+@import "../../node_modules/bootstrap/scss/grid";
+@import "../../node_modules/bootstrap/scss/tables";
+@import "../../node_modules/bootstrap/scss/forms";
+@import "../../node_modules/bootstrap/scss/buttons";
+@import "../../node_modules/bootstrap/scss/transitions";
+@import "../../node_modules/bootstrap/scss/dropdown";
+@import "../../node_modules/bootstrap/scss/button-group";
+@import "../../node_modules/bootstrap/scss/input-group";
+@import "../../node_modules/bootstrap/scss/custom-forms";
+@import "../../node_modules/bootstrap/scss/nav";
+@import "../../node_modules/bootstrap/scss/navbar";
+@import "../../node_modules/bootstrap/scss/card";
+@import "../../node_modules/bootstrap/scss/breadcrumb";
+@import "../../node_modules/bootstrap/scss/pagination";
+@import "../../node_modules/bootstrap/scss/badge";
+@import "../../node_modules/bootstrap/scss/jumbotron";
+@import "../../node_modules/bootstrap/scss/alert";
+@import "../../node_modules/bootstrap/scss/progress";
+@import "../../node_modules/bootstrap/scss/media";
+@import "../../node_modules/bootstrap/scss/list-group";
+@import "../../node_modules/bootstrap/scss/close";
+@import "../../node_modules/bootstrap/scss/modal";
+@import "../../node_modules/bootstrap/scss/tooltip";
+@import "../../node_modules/bootstrap/scss/popover";
+@import "../../node_modules/bootstrap/scss/carousel";
+@import "../../node_modules/bootstrap/scss/utilities";
+@import "../../node_modules/bootstrap/scss/print";

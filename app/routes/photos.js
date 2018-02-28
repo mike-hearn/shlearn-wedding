@@ -1,4 +1,4 @@
-import Ember from "ember";
+import Route from '@ember/routing/route';
 
 var items = [
   {
@@ -111,7 +111,7 @@ var items = [
   }
 ];
 
-export default Ember.Route.extend({
+export default Route.extend({
   titleToken: "Photos",
   model() {
     return items;
