@@ -26,6 +26,8 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
+      - setup_remote_docker:
+          version: 17.06.0-ce
       - run: |
           TAG=0.1.$CIRCLE_BUILD_NUM
           docker run --rm -ti --cap-add=SYS_ADMIN mikehearn/shlearn-wedding:$TAG yarn test
