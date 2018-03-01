@@ -1,7 +1,7 @@
-import Ember from 'ember';
+import Controller from '@ember/controller';
 import { computed } from '@ember/object';
 
-export default Ember.Controller.extend({
+export default Controller.extend({
   singleMatch: computed.equal('peopleMatches', 1),
   person: true
 });
