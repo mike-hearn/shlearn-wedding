@@ -12,18 +12,18 @@
 {{/unless}}
 
 {{#if (eq peopleMatches 0)}}
-  <div class="text-center">
+  <div class="text-center rsvp__no-guests">
     <p>We couldn't find any guests by that name.</p>
     <p>If I screwed something up (likely!), please send an email to <a href="mailto:rsvp@mikehearn.com">rsvp@mikehearn.com</a>.</p>
   </div>
 {{/if}}
 
 {{#if (eq peopleMatches 2)}}
-  <div class="text-center">
+  <div class="text-center rsvp__multiple-matches">
     <p>Which guest are you?</p>
     <form {{action 'selectPerson' exactPerson on="submit"}}>
       {{#each people as |person|}}
-        <p>{{radio-button class="rsvp--person-option" value=person checked=exactPerson}} {{person.fullName}}</p>
+        <p>{{radio-button class="person-option" value=person checked=exactPerson}} {{person.fullName}}</p>
       {{/each}}
       <button type="submit">Submit</button>
     </form>
