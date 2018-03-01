@@ -2,7 +2,7 @@ import { moduleFor, test } from 'ember-qunit';
 
 moduleFor('controller:rsvp', 'Unit | Controller | rsvp', {
   // Specify the other units that are required for this test.
-  // needs: ['controller:foo']
+  needs: ['service:headData']
 });
 
 // Replace this with your real tests.

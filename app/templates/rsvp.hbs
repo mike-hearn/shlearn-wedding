@@ -1,7 +1,8 @@
 <h2>RSVP</h2>
 <img class="vermont-divider" src="/static/vermontseparator.svg" alt="divider">
+
 {{#unless peopleMatches}}
-  <div class="text-center">
+  <div id="person-search" class="people-search text-center">
     <p>Please enter your full name in the box:</p>
     <form {{action 'searchPeople' searchValue on="submit"}}>
       {{input type="text" value=searchValue placeholder="Enter your full name"}}
@@ -9,8 +10,6 @@
     </form>
   </div>
 {{/unless}}
-
-
 
 {{#if (eq peopleMatches 0)}}
   <div class="text-center">
@@ -24,7 +23,7 @@
     <p>Which guest are you?</p>
     <form {{action 'selectPerson' exactPerson on="submit"}}>
       {{#each people as |person|}}
-        <p>{{radio-button value=person checked=exactPerson}} {{person.fullName}}</p>
+        <p>{{radio-button class="rsvp--person-option" value=person checked=exactPerson}} {{person.fullName}}</p>
       {{/each}}
       <button type="submit">Submit</button>
     </form>
@@ -32,6 +31,6 @@
 {{/if}}
 
 {{#if person.fullName}}
-  <h3 class="text-center">{{person.fullName}}</h3>
+  <h3 class="rsvp--person-name text-center">{{person.fullName}}</h3>
 {{/if}}
 
