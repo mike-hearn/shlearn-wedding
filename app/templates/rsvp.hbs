@@ -6,7 +6,7 @@
     <p>Please enter your full name in the box:</p>
     <form {{action 'searchPeople' searchValue on="submit"}}>
       {{input type="text" value=searchValue placeholder="Enter your full name"}}
-      <button type="submit">Submit</button>
+      <button type="submit" disabled={{not searchValue}}>Submit</button>
     </form>
   </div>
 {{/unless}}
@@ -25,7 +25,7 @@
       {{#each people as |person|}}
         <p>{{radio-button class="person-option" value=person checked=exactPerson}} {{person.fullName}}</p>
       {{/each}}
-      <button type="submit">Submit</button>
+      <button type="submit" disabled={{not exactPerson}}>Submit</button>
     </form>
   </div>
 {{/if}}
