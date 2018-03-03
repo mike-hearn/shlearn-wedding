@@ -45,13 +45,16 @@ module("Acceptance | rsvp", function(hooks) {
     await visit("/rsvp");
     await $("button:contains('submit')").click();
 
-    assert.ok($('body').text().indexOf('Please enter your full name') > -1);
+    assert.ok(
+      $("body")
+        .text()
+        .indexOf("Please enter your full name") > -1
+    );
 
     server.db.emptyData();
   });
 
   test("cannot submit name selection if no radio buttons chosen", async function(assert) {
-
     await server.createList("person", 2);
 
     await visit("/rsvp");
@@ -60,9 +63,30 @@ module("Acceptance | rsvp", function(hooks) {
 
     await $("button:contains('submit')").click();
 
-    assert.ok($('body').text().indexOf('Which guest are you?') > -1);
+    assert.ok(
+      $("body")
+        .text()
+        .indexOf("Which guest are you?") > -1
+    );
 
     server.db.emptyData();
+  });
 
+  test("show correct fields when guest has no +1", function(assert) {
+    // Assemble
+    // Act
+    // Assert
+  });
+
+  test("show correct fields when guest is known (e.g. jon & dom)", function(assert) {
+    // Assemble
+    // Act
+    // Assert
+  });
+
+  test("show correct fields when guest is unknown", function(assert) {
+    // Assemble
+    // Act
+    // Assert
   });
 });

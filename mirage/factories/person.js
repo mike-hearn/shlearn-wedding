@@ -1,4 +1,4 @@
-import { Factory, faker } from "ember-cli-mirage";
+import { Factory, faker, association } from "ember-cli-mirage";
 
 function uuidv4() {
   return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function(c) {
@@ -14,5 +14,6 @@ export default Factory.extend({
   },
   id() {
     return uuidv4();
-  }
+  },
+  invitation: association()
 });
