@@ -38,4 +38,31 @@ module("Acceptance | rsvp", function(hooks) {
 
     server.db.emptyData();
   });
+
+  test("cannot hit submit if name not entered", async function(assert) {
+    await server.createList("person", 2);
+
+    await visit("/rsvp");
+    await $("button:contains('submit')").click();
+
+    assert.ok($('body').text().indexOf('Please enter your full name') > -1);
+
+    server.db.emptyData();
+  });
+
+  test("cannot submit name selection if no radio buttons chosen", async function(assert) {
+
+    await server.createList("person", 2);
+
+    await visit("/rsvp");
+    await fillIn("#person-search input", "John Doe");
+    await click("#person-search button");
+
+    await $("button:contains('submit')").click();
+
+    assert.ok($('body').text().indexOf('Which guest are you?') > -1);
+
+    server.db.emptyData();
+
+  });
 });
