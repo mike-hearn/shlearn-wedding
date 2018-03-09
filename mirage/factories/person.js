@@ -15,5 +15,9 @@ export default Factory.extend({
   id() {
     return uuidv4();
   },
-  invitation: association()
+  nickname() {
+    return this.fullName.split(' ')[0];
+  },
+  invitation: association(),
+  isGuest: false
 });

@@ -1,8 +1,10 @@
 @import "variables";
 @import "bootstrap-imports";
 
+@import "forms";
 @import "nav";
 @import "photos";
+@import "rsvp";
 
 body {
   background: url(/static/Wood_Background.jpg) no-repeat center center fixed;

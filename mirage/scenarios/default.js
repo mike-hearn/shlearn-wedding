@@ -4,9 +4,7 @@ export default function(server) {
     This data will not be loaded in your tests.
   */
 
-  let numberOfPeople = [1];
-  server.createList(
-    "person",
-    numberOfPeople[Math.floor(Math.random() * numberOfPeople.length)]
-  );
+  let invitation = server.create('invitation');
+  server.create('person', { invitation });
+  server.create('person', { isGuest: true, invitation });
 }

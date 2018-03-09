@@ -23,7 +23,12 @@
     <p>Which guest are you?</p>
     <form {{action 'selectPerson' exactPerson on="submit"}}>
       {{#each people as |person|}}
-        <p>{{radio-button class="person-option" value=person checked=exactPerson}} {{person.fullName}}</p>
+        {{#radio-button
+          value=person
+          groupValue=exactPerson
+          classNames="radio-button-row person-option" }}
+          <span>{{person.fullName}}</span>
+        {{/radio-button}}
       {{/each}}
       <button type="submit" disabled={{not exactPerson}}>Submit</button>
     </form>
@@ -31,6 +36,64 @@
 {{/if}}
 
 {{#if person.fullName}}
-  <h3 class="rsvp--person-name text-center">{{person.fullName}}</h3>
+  {{#each invitation.guests as |guest index|}}
+    <div>
+      <h4 class="text-center">RSVP for {{guest.fullName}}</h4>
+
+      {{! Choose which days to attend}}
+      {{#if (eq guest person)}}
+        <p>{{guest.nickname}}, which days can you make it?</p>
+      {{else}}
+        <p>Which days can {{guest.nickname}} make it?</p>
+      {{/if}}
+      {{#radio-button
+        name=(concat 'days-' index)
+        value="Friday and Saturday"
+        groupValue=guest.attendance
+        changed="attendanceChanged"
+        classNames="radio-button-row"}}
+        <span><b>Friday &amp; Saturday</b> <span class="text-small">(Welcome Dinner + Ceremony/Reception)</span></span>
+      {{/radio-button}}
+      {{#radio-button
+        name=(concat 'days-' index)
+        value="Saturday Only"
+        groupValue=guest.attendance
+        classNames="radio-button-row"}}
+        <span><b>Saturday Only</b> (Ceremony/Reception)</span>
+      {{/radio-button}}
+      {{#radio-button
+        name=(concat 'days-' index)
+        value="Cannot Attend"
+        groupValue=guest.attendance
+        classNames="radio-button-row"}}
+        <span>Regretfully cannot attend.</span>
+      {{/radio-button}}
+
+      <p>Meal option:</p>
+      {{#radio-button
+        name=(concat 'meal-' index)
+        value="Beef"
+        groupValue=guest.foodChoice
+        changed="attendanceChanged"
+        classNames="radio-button-row"}}
+        <span>Beef</span>
+      {{/radio-button}}
+      {{#radio-button
+        name=(concat 'meal-' index)
+        value="Chicken"
+        groupValue=guest.foodChoice
+        classNames="radio-button-row"}}
+        <span>Chicken</span>
+      {{/radio-button}}
+      {{#radio-button
+        name=(concat 'meal-' index)
+        value="Vegetarian"
+        groupValue=guest.foodChoice
+        classNames="radio-button-row"}}
+        <span>Vegetarian</span>
+      {{/radio-button}}
+      <hr />
+    </div>
+  {{/each}}
 {{/if}}
 

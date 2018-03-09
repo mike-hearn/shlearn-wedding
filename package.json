@@ -16,6 +16,7 @@
     "test": "ember test"
   },
   "devDependencies": {
+    "@types/ember": "^2.8.15",
     "bootstrap": "^4.0.0",
     "broccoli-asset-rev": "^2.4.5",
     "ember-ajax": "^3.0.0",
@@ -43,7 +44,7 @@
     "ember-export-application-global": "^2.0.0",
     "ember-load-initializers": "^1.0.0",
     "ember-maybe-import-regenerator": "^0.1.6",
-    "ember-radio-buttons": "^4.1.0",
+    "ember-radio-button": "^1.2.3",
     "ember-resolver": "^4.0.0",
     "ember-source": "~3.0.0",
     "ember-truth-helpers": "^2.0.0",
