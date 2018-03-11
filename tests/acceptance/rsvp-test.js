@@ -72,14 +72,25 @@ module("Acceptance | rsvp", function(hooks) {
     server.db.emptyData();
   });
 
-  skip("show correct fields when guest has no +1", async function(assert) {
-    // Assemble
+  test("show correct fields when guest has no +1", async function(assert) {
+    // Assemble - 2-person fuzzy match, but first person has only one person on
+    // their invitation
+    let invitation = server.create('invitation');
+    let person = server.create('person', { invitation });
+    server.create('person')
+
     // Act
     await visit("/rsvp");
     await fillIn("#person-search input", "John Doe");
     await click("#person-search button");
+
+    await $(`:contains("${person.fullName}")`).click();
+    await $(`:contains("Submit")`).click();
+
     // Assert
-    assert.ok();
+    assert.equal($('h4').length, 1);
+
+    server.db.emptyData();
   });
 
   skip("show correct fields when guest is known (e.g. jon & dom)", async function(assert) {

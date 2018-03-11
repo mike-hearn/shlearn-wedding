@@ -1,0 +1,31 @@
+{{! Choose which days to attend}}
+{{#if (eq guest person)}}
+  <p>{{guest.nickname}}, which days can you make it?</p>
+{{else}}
+  <p>Which days can {{guest.nickname}} make it?</p>
+{{/if}}
+
+{{#radio-button
+  name=(concat 'days-' index)
+  value="Friday and Saturday"
+  groupValue=guest.attendance
+  changed="attendanceChanged"
+  classNames="radio-button-row"}}
+  <span><b>Friday &amp; Saturday</b> <span class="text-small">(Welcome Dinner + Ceremony/Reception)</span></span>
+{{/radio-button}}
+
+{{#radio-button
+  name=(concat 'days-' index)
+  value="Saturday Only"
+  groupValue=guest.attendance
+  classNames="radio-button-row"}}
+  <span><b>Saturday Only</b> (Ceremony/Reception)</span>
+{{/radio-button}}
+
+{{#radio-button
+  name=(concat 'days-' index)
+  value="Cannot Attend"
+  groupValue=guest.attendance
+  classNames="radio-button-row"}}
+  <span>Regretfully cannot attend.</span>
+{{/radio-button}}

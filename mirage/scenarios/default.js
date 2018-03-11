@@ -4,7 +4,5 @@ export default function(server) {
     This data will not be loaded in your tests.
   */
 
-  let invitation = server.create('invitation');
-  server.create('person', { invitation });
-  server.create('person', { isGuest: true, invitation });
+    server.create('invitation', 'withTwoGuests');
 }
