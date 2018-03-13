@@ -1,7 +1,11 @@
-{{#each invitation.guests as |guest|}}
-  <div class="rsvp__individual-rsvp">
-    <h4 class="text-center">RSVP for {{guest.fullName}}</h4>
-    {{rsvp/attendance-questions guest=guest}}
-    {{rsvp/meal-questions guest=guest}}
-  </div>
-{{/each}}
+{{#if unknownGuests}}
+  {{rsvp/unknown-guest-form guest=firstUnknownGuest}}
+{{else}}
+  {{#each invitation.guests as |guest|}}
+    <div class="rsvp__individual-rsvp">
+      <h4 class="text-center">RSVP for {{guest.fullName}}</h4>
+      {{rsvp/attendance-questions guest=guest}}
+      {{rsvp/meal-questions guest=guest}}
+    </div>
+  {{/each}}
+{{/if}}

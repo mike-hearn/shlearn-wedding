@@ -25,7 +25,7 @@
 {{/if}}
 
 {{! Case if exact one person is matched}}
-{{#if person.fullName}}
-  {{rsvp/full-rsvp-form invitation=invitation}}
+{{#if invitation}}
+  {{rsvp/full-rsvp-form invitation=invitation personInitiatedRSVP=person}}
 {{/if}}
 

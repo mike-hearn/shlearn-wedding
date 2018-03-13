@@ -93,23 +93,82 @@ module("Acceptance | rsvp", function(hooks) {
     server.db.emptyData();
   });
 
-  skip("show correct fields when guest is known (e.g. jon & dom)", async function(assert) {
+  test("show correct fields when guest is known (e.g. jon & dom)", async function(assert) {
     // Assemble
+    let invitation = server.create('invitation', 'withTwoGuests');
+    let people = server.db.people.where({invitationId: invitation.id});
     // Act
     await visit("/rsvp");
     await fillIn("#person-search input", "John Doe");
     await click("#person-search button");
     // Assert
-    assert.ok();
+    assert.ok($(`body:contains(${people[0].fullName})`).length > 0);
+    assert.ok($(`body:contains(${people[1].fullName})`).length > 0);
+
+    server.db.emptyData();
   });
 
-  skip("show correct fields when guest is unknown", async function(assert) {
-    // Assemble
-    // Act
+  test("show correct fields when guest is unknown", async function(assert) {
+    server.create('invitation', 'withTwoGuestsOneUnknown');
+
     await visit("/rsvp");
     await fillIn("#person-search input", "John Doe");
     await click("#person-search button");
-    // Assert
+
+    assert.ok($(`body:contains(Are you bringing a guest)`).length > 0);
+
+    await $(`:contains('Yes')`).click();
+
+    assert.ok($(`body:contains(What is your guest's name)`).length > 0);
+
+    server.db.emptyData();
+  });
+
+  skip("if not bringing unknown guest, show only original person", async function(assert) {
+    // server.create('invitation', 'withTwoGuestsOneUnknown');
+
+    // await visit("/rsvp");
+    // await fillIn("#person-search input", "John Doe");
+    // await click("#person-search button");
+
+    // assert.ok($(`body:contains(Are you bringing a guest)`).length > 0);
+
+    // await $(`input:contains('Yes')`).click();
+
     assert.ok();
+
+    // server.db.emptyData();
+  });
+
+  skip("make sure known person is listed first", async function(assert) {
+    // server.create('invitation', 'withTwoGuestsOneUnknown');
+
+    // await visit("/rsvp");
+    // await fillIn("#person-search input", "John Doe");
+    // await click("#person-search button");
+
+    // assert.ok($(`body:contains(Are you bringing a guest)`).length > 0);
+
+    // await $(`input:contains('Yes')`).click();
+
+    assert.ok();
+
+    // server.db.emptyData();
+  });
+
+  skip("put searched user first in rsvp list", async function(assert) {
+    // server.create('invitation', 'withTwoGuestsOneUnknown');
+
+    // await visit("/rsvp");
+    // await fillIn("#person-search input", "John Doe");
+    // await click("#person-search button");
+
+    // assert.ok($(`body:contains(Are you bringing a guest)`).length > 0);
+
+    // await $(`input:contains('Yes')`).click();
+
+    assert.ok();
+
+    // server.db.emptyData();
   });
 });

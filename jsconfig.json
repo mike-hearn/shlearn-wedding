@@ -1,8 +1,1 @@
-{
-  "compilerOptions": {
-    "target": "es2017",
-    "checkJs": true,
-    "allowSyntheticDefaultImports": true
-  },
-  "exclude": ["node_modules", "tmp", "vendor", "dist"]
-}
+{"compilerOptions":{"target":"es6","experimentalDecorators":true},"exclude":["node_modules","bower_components","tmp","vendor",".git","dist"]}

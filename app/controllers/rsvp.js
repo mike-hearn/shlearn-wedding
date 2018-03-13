@@ -1,8 +1,8 @@
-import Controller from '@ember/controller';
-import { computed } from '@ember/object';
+import Controller from "@ember/controller";
+import { computed } from "@ember/object";
 
 export default Controller.extend({
-  singleMatch: computed.equal('peopleMatches', 1),
+  singleMatch: computed.equal("peopleMatches", 1),
   person: true,
   actions: {
     searchPeople(name) {
@@ -11,7 +11,7 @@ export default Controller.extend({
           filter: {
             fullName: name
           },
-          include: 'invitation'
+          include: "invitation, invitation.guests"
         })
         .then(people => {
           this.set("people", people);
@@ -23,12 +23,10 @@ export default Controller.extend({
         });
     },
     selectPerson(person) {
+      this.set("invitationLoaded", true);
       this.set("peopleMatches", 1);
       this.set("person", person);
-
-      person.get("invitation").then(invitation => {
-        this.set("invitation", invitation);
-      });
-    },
+      this.set("invitation", person.get("invitation"));
+    }
   }
 });
