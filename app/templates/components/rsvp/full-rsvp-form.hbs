@@ -1,9 +1,9 @@
 {{#if unknownGuests}}
   {{rsvp/unknown-guest-form guest=firstUnknownGuest}}
 {{else}}
-  {{#each invitation.guests as |guest|}}
+  {{#each guestsWithKnownPersonFirst as |guest|}}
     <div class="rsvp__individual-rsvp">
-      <h4 class="text-center">RSVP for {{guest.fullName}}</h4>
+      <h4 class="text-center">RSVP for {{guest.displayName}}</h4>
       {{rsvp/attendance-questions guest=guest}}
       {{rsvp/meal-questions guest=guest}}
     </div>

@@ -7,14 +7,16 @@ module("Acceptance | rsvp", function(hooks) {
   setupApplicationTest(hooks);
 
   test("person match: with one match, only invitation is shown", async function(assert) {
-    let { fullName } = await server.create("person");
+    await server.create("person", {fullName: "John Doe"});
 
     await visit("/rsvp");
     await fillIn("#person-search input", "John Doe");
     await click("#person-search button");
 
-    let $personHeader = $(`h4:contains("${fullName}")`)
-    assert.ok(($personHeader.length !== 0));
+    let $personHeader = $(`h4:contains(John)`);
+    assert.ok($personHeader.length !== 0, "nickname is displayed");
+    $personHeader = $(`h4:contains(John Doe)`);
+    assert.ok($personHeader.length === 0, "fullname is NOT displayed");
 
     server.db.emptyData();
   });
@@ -26,15 +28,22 @@ module("Acceptance | rsvp", function(hooks) {
     await fillIn("#person-search input", "John Doe");
     await click("#person-search button");
 
-    await assert.equal($(".rsvp__multiple-matches .person-option").length, 2);
+    await assert.equal(
+      $(".rsvp__multiple-matches .person-option").length,
+      2,
+      "two options are shown"
+    );
 
     await $(".rsvp__multiple-matches .person-option")
       .first()
       .click();
     await $(".rsvp__multiple-matches button").click();
 
-    let $personHeader = $(`h4:first:contains("${people[0].fullName}")`)
-    assert.ok(($personHeader.length !== 0));
+    let $personHeader = $(`h4:first:contains("${people[0].nickname}")`);
+    assert.ok(
+      $personHeader.length !== 0,
+      "person's name appears at top of rsvp"
+    );
 
     server.db.emptyData();
   });
@@ -75,9 +84,9 @@ module("Acceptance | rsvp", function(hooks) {
   test("show correct fields when guest has no +1", async function(assert) {
     // Assemble - 2-person fuzzy match, but first person has only one person on
     // their invitation
-    let invitation = server.create('invitation');
-    let person = server.create('person', { invitation });
-    server.create('person')
+    let invitation = server.create("invitation");
+    let person = server.create("person", { invitation });
+    server.create("person");
 
     // Act
     await visit("/rsvp");
@@ -88,15 +97,15 @@ module("Acceptance | rsvp", function(hooks) {
     await $(`:contains("Submit")`).click();
 
     // Assert
-    assert.equal($('h4').length, 1);
+    assert.equal($("h4").length, 1);
 
     server.db.emptyData();
   });
 
   test("show correct fields when guest is known (e.g. jon & dom)", async function(assert) {
     // Assemble
-    let invitation = server.create('invitation', 'withTwoGuests');
-    let people = server.db.people.where({invitationId: invitation.id});
+    let invitation = server.create("invitation", "withTwoGuests");
+    let people = server.db.people.where({ invitationId: invitation.id });
     // Act
     await visit("/rsvp");
     await fillIn("#person-search input", "John Doe");
@@ -109,7 +118,7 @@ module("Acceptance | rsvp", function(hooks) {
   });
 
   test("show correct fields when guest is unknown", async function(assert) {
-    server.create('invitation', 'withTwoGuestsOneUnknown');
+    server.create("invitation", "withTwoGuestsOneUnknown");
 
     await visit("/rsvp");
     await fillIn("#person-search input", "John Doe");

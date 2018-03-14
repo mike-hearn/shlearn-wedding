@@ -24,7 +24,7 @@ export default function() {
     http://www.ember-cli-mirage.com/docs/v0.3.x/shorthands/
   */
   this.get('/people/', function(schema) {
-    return schema.people.where({isGuest: false});
+    return schema.people.where({isUnknownGuest: false});
   });
   this.get('/invitations/:id');
 }

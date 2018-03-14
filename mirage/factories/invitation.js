@@ -12,14 +12,14 @@ export default Factory.extend({
   }),
   withTwoGuestsOneUnknown: trait({
     afterCreate(invitation, server) {
-      let knownGuest = server.create("person", { invitation, isGuest: false });
+      let knownGuest = server.create("person", { invitation, isUnknownGuest: false });
       let unknownGuest = server.create("person", {
         invitation,
-        isGuest: true,
+        isUnknownGuest: true,
         fullName: "",
         nickname: ""
       });
       invitation.guests = [knownGuest, unknownGuest];
     }
-  })
+  }),
 });

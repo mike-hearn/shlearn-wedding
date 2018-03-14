@@ -19,5 +19,5 @@ export default Factory.extend({
     return this.fullName.split(' ')[0];
   },
   invitation: association(),
-  isGuest: false
+  isUnknownGuest: false
 });
