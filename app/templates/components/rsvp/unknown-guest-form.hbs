@@ -1,6 +1,6 @@
 {{! are you bringing a guest? yes/no}}
 <p>Unknown guest.</p>
-<form {{action 'updateGuest' guest on="submit"}}>
+<form {{action 'updateGuest' guest isBringingGuest on="submit"}}>
   <p>Are you bringing a guest?</p>
   {{#radio-button
     name="bringing-guest"
