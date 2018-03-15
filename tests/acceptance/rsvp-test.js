@@ -154,7 +154,10 @@ module('Acceptance | rsvp', function(hooks) {
   });
 
   test('make sure known person is listed first', async function(assert) {
-    let invitation = await server.create('invitation', 'withTwoGuestsOneUnknown');
+    let invitation = await server.create(
+      'invitation',
+      'withTwoGuestsOneUnknown',
+    );
     let people = await server.db.people.where({invitationId: invitation.id});
 
     await visit('/rsvp');
@@ -171,12 +174,39 @@ module('Acceptance | rsvp', function(hooks) {
       'first rsvp contains first name',
     );
     assert.ok(
-      $(`.rsvp__individual-rsvp:last:contains(Fake)`)
-        .length === 1,
+      $(`.rsvp__individual-rsvp:last:contains(Fake)`).length === 1,
       'second rsvp contains second name',
     );
 
     server.db.emptyData();
   });
 
+  test('put searched user first in rsvp list', async function(assert) {
+    server.create('invitation', 'withTwoGuests');
+    await visit('/rsvp');
+    await fillIn('#person-search input', 'John Doe');
+    await click('#person-search button');
+
+    let firstName = await $('.person-option:last').text().trim();
+    await $(`.person-option:last`).click();
+    await $(`:contains(Submit)`).click();
+
+    assert.ok($(`h4:first:contains(${firstName.split(' ')[0]})`).length > 0);
+    server.db.emptyData();
+  });
+
+  test('if unknown guest not provided name, say `Your guest`', async function(assert) {
+    await server.create('invitation', 'withTwoGuestsOneUnknown');
+
+    await visit('/rsvp');
+    await fillIn('#person-search input', 'John Doe');
+    await click('#person-search button');
+
+    await $(`.bringing-guest-radio-button.yes`).click();
+    await $(`:contains(Submit)`).click();
+
+    assert.ok($(`h4:last:contains(Guest)`).length > 0);
+
+    server.db.emptyData();
+  });
 });

@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import {module, test, skip} from 'qunit';
+import {module, test} from 'qunit';
 import {setupRenderingTest} from 'ember-qunit';
 import {render, fillIn} from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
@@ -83,27 +83,4 @@ module('Integration | Component | rsvp/full-rsvp-form', function(hooks) {
     server.db.emptyData();
   });
 
-  skip('if unknown guest not provided name, say `Your guest`', async function(assert) {
-    let invitation = await Object.create(
-      server.create('invitation', 'withTwoGuestsOneUnknown').attrs,
-    );
-    let people = await server.db.people
-      .where({invitationId: invitation.id})
-      .map(p => Object.create(p));
-
-    invitation.set('guests', people);
-    this.set('invitation', invitation);
-
-    await render(hbs`{{rsvp/full-rsvp-form invitation=invitation}}`);
-    await $(':contains(Yes)').click();
-    await $(':contains(Submit)').click();
-
-    assert.ok(
-      $(`.rsvp__individual-rsvp > h4:first:contains(${people[0].fullName})`)
-        .length > 0,
-    );
-    assert.ok($(`.rsvp__individual-rsvp > h4:last:contains(Guest)`).length > 0);
-
-    server.db.emptyData();
-  });
 });
