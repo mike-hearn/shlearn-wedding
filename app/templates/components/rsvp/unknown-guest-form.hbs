@@ -6,19 +6,19 @@
     name="bringing-guest"
     value=true
     groupValue=isBringingGuest
-    classNames="radio-button-row bringing-guest-radio-button"}}
+    classNames="radio-button-row bringing-guest-radio-button yes"}}
     <span>Yes</span>
   {{/radio-button}}
   {{#radio-button
     name="bringing-guest"
     value=false
     groupValue=isBringingGuest
-    classNames="radio-button-row bringing-guest-radio-button"}}
+    classNames="radio-button-row bringing-guest-radio-button no"}}
     <span>No</span>
   {{/radio-button}}
   {{#if isBringingGuest}}
     <p>What is your guest's name?</p>
-    {{input type="text" value=guest.fullName}}
+    {{input class="input-guest-name" type="text" value=guest.fullName}}
   {{/if}}
   <button type="submit">Submit</button>
 </form>

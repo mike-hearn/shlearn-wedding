@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import {module, test, skip} from 'qunit';
+import {module, test} from 'qunit';
 import {visit, fillIn, click} from '@ember/test-helpers';
 import {setupApplicationTest} from 'ember-qunit';
 
@@ -153,35 +153,30 @@ module('Acceptance | rsvp', function(hooks) {
     server.db.emptyData();
   });
 
-  skip('make sure known person is listed first', async function(assert) {
-    // server.create('invitation', 'withTwoGuestsOneUnknown');
+  test('make sure known person is listed first', async function(assert) {
+    let invitation = await server.create('invitation', 'withTwoGuestsOneUnknown');
+    let people = await server.db.people.where({invitationId: invitation.id});
 
-    // await visit("/rsvp");
-    // await fillIn("#person-search input", "John Doe");
-    // await click("#person-search button");
+    await visit('/rsvp');
+    await fillIn('#person-search input', 'John Doe');
+    await click('#person-search button');
 
-    // assert.ok($(`body:contains(Are you bringing a guest)`).length > 0);
+    await $(`.bringing-guest-radio-button.yes`).click();
+    await fillIn('.input-guest-name', 'Fake Name');
+    await $(`:contains(Submit)`).click();
 
-    // await $(`input:contains('Yes')`).click();
+    assert.ok(
+      $(`.rsvp__individual-rsvp:first:contains(${people[0].nickname})`)
+        .length === 1,
+      'first rsvp contains first name',
+    );
+    assert.ok(
+      $(`.rsvp__individual-rsvp:last:contains(Fake)`)
+        .length === 1,
+      'second rsvp contains second name',
+    );
 
-    assert.ok();
-
-    // server.db.emptyData();
+    server.db.emptyData();
   });
 
-  skip('put searched user first in rsvp list', async function(assert) {
-    // server.create('invitation', 'withTwoGuestsOneUnknown');
-
-    // await visit("/rsvp");
-    // await fillIn("#person-search input", "John Doe");
-    // await click("#person-search button");
-
-    // assert.ok($(`body:contains(Are you bringing a guest)`).length > 0);
-
-    // await $(`input:contains('Yes')`).click();
-
-    assert.ok();
-
-    // server.db.emptyData();
-  });
 });
