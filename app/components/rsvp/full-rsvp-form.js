@@ -24,7 +24,6 @@ export default Component.extend({
   ),
   actions: {
     submitForm() {
-      console.log("Form submitted.")
     }
   }
 });

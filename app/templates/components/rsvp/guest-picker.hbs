@@ -1,14 +1,16 @@
 <div class="text-center rsvp__multiple-matches">
   <p>Which guest are you?</p>
   <form {{action onConfirm exactPerson on="submit"}}>
-    {{#each people as |person|}}
-      {{#radio-button
-        value=person
-        groupValue=exactPerson
-        classNames="radio-button-row person-option" }}
-        <span>{{person.fullName}}</span>
-      {{/radio-button}}
-    {{/each}}
-    <button type="submit" disabled={{not exactPerson}}>Submit</button>
+    <div class="form-check">
+      {{#each people as |person|}}
+        {{#radio-button
+          value=person
+          groupValue=exactPerson
+          classNames="radio-button-row person-option" }}
+          <span>{{person.fullName}}</span>
+        {{/radio-button}}
+      {{/each}}
+      <button type="submit" class="btn" disabled={{not exactPerson}}>Submit</button>
+    </div>
   </form>
 </div>

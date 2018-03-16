@@ -3,13 +3,15 @@
 {{else}}
 <form {{action 'submitForm' on="submit"}}>
   {{#each allValidGuests as |guest|}}
-    <div class="rsvp__individual-rsvp">
+    <div class="rsvp__individual-rsvp mb-5">
       <h4 class="text-center">RSVP for {{guest.displayName}}</h4>
       {{rsvp/attendance-questions guest=guest}}
       {{rsvp/meal-questions guest=guest}}
-      {{rsvp/additional-questions invitation=invitation}}
     </div>
   {{/each}}
-  <button type="submit" class="btn">Submit RSVP</button>
+  {{rsvp/additional-questions invitation=invitation}}
+  <div class="row justify-content-center">
+    <button type="submit" class="btn">Submit RSVP</button>
+  </div>
 </form>
 {{/if}}
