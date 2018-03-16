@@ -1,23 +1,31 @@
-<p>Meal option:</p>
-{{#radio-button
-  name=(concat 'meal-' index)
-  value="Beef"
-  groupValue=guest.foodChoice
-  changed="attendanceChanged"
-  classNames="radio-button-row"}}
-  <span>Beef</span>
-{{/radio-button}}
-{{#radio-button
-  name=(concat 'meal-' index)
-  value="Chicken"
-  groupValue=guest.foodChoice
-  classNames="radio-button-row"}}
-  <span>Chicken</span>
-{{/radio-button}}
-{{#radio-button
-  name=(concat 'meal-' index)
-  value="Vegetarian"
-  groupValue=guest.foodChoice
-  classNames="radio-button-row"}}
-  <span>Vegetarian</span>
-{{/radio-button}}
+<div class="form-group">
+  <p>Meal option:</p>
+  <div class="form-check">
+    {{#radio-button
+      name=(concat 'meal-' index)
+      value="Beef"
+      groupValue=guest.foodChoice
+      changed="attendanceChanged"
+      classNames="radio-button-row"}}
+      <span>Beef</span>
+    {{/radio-button}}
+  </div>
+  <div class="form-check">
+    {{#radio-button
+      name=(concat 'meal-' index)
+      value="Chicken"
+      groupValue=guest.foodChoice
+      classNames="radio-button-row"}}
+      <span>Chicken</span>
+    {{/radio-button}}
+  </div>
+  <div class="form-check">
+    {{#radio-button
+      name=(concat 'meal-' index)
+      value="Vegetarian"
+      groupValue=guest.foodChoice
+      classNames="radio-button-row"}}
+      <span>Vegetarian</span>
+    {{/radio-button}}
+  </div>
+</div>

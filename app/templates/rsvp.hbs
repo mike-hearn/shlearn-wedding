@@ -4,10 +4,17 @@
 {{#unless peopleMatches}}
   <div id="person-search" class="people-search text-center">
     <p>Please enter your full name in the box:</p>
-    <form {{action 'searchPeople' searchValue on="submit"}}>
-      {{input type="text" value=searchValue placeholder="Enter your full name"}}
-      <button type="submit" disabled={{not searchValue}}>Submit</button>
-    </form>
+      <form {{action 'searchPeople' searchValue on="submit"}}>
+        <div class="form-row align-items-center justify-content-center">
+          <div class="col-auto">
+            <label class="sr-only">Enter Your Name</label>
+            {{input type="text" value=searchValue class="form-control" placeholder="Enter your full name"}}
+          </div>
+          <div class="col-auto">
+            <button type="submit" class="btn" disabled={{not searchValue}}>Submit</button>
+          </div>
+        </div>
+      </form>
   </div>
 {{/unless}}
 
