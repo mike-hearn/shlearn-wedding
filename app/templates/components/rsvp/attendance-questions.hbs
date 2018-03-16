@@ -1,7 +1,7 @@
 {{! Choose which days to attend}}
 <div class="form-group">
   {{#if (eq guest person)}}
-    <p>{{guest.nickname}}, which days can you make it?</p>
+    <p>{{guest.firstName}}, which days can you make it?</p>
   {{else}}
     <p>Which days can {{guest.displayName}} make it?</p>
   {{/if}}

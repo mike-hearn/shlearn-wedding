@@ -13,7 +13,7 @@ module('Integration | Component | rsvp/full-rsvp-form', function(hooks) {
       .createList('person', 2)
       .map(p => Object.create(p.attrs));
     people.forEach(p => {
-      p.displayName = p.nickname || p.fullName;
+      p.displayName = p.fullName || "Guest";
     });
     let invitation = Object.create({
       guests: people,
@@ -27,11 +27,11 @@ module('Integration | Component | rsvp/full-rsvp-form', function(hooks) {
     );
 
     assert.ok(
-      $(`.rsvp__individual-rsvp:contains(${people[0].nickname})`).length > 0,
+      $(`.rsvp__individual-rsvp:contains(${people[0].firstName})`).length > 0,
       "first person's full name appears",
     );
     assert.ok(
-      $(`.rsvp__individual-rsvp:contains(${people[1].nickname})`).length > 0,
+      $(`.rsvp__individual-rsvp:contains(${people[1].firstName})`).length > 0,
       "second person's full name appears",
     );
     assert.ok($(`.rsvp__individual-rsvp`).length === 2, 'there are two rsvps');
@@ -63,7 +63,7 @@ module('Integration | Component | rsvp/full-rsvp-form', function(hooks) {
       .where({invitationId: invitation.id})
       .map(p => Object.create(p));
     people.forEach(p => {
-      p.displayName = p.nickname || p.fullName;
+      p.displayName = p.fullName;
     });
 
     invitation.set('guests', people);
@@ -76,7 +76,7 @@ module('Integration | Component | rsvp/full-rsvp-form', function(hooks) {
 
 
     assert.ok(
-      $(`.rsvp__individual-rsvp > h4:first:contains(${people[0].nickname})`)
+      $(`.rsvp__individual-rsvp > h4:first:contains(${people[0].firstName})`)
         .length > 0,
       'the known person is listed first',
     );

@@ -22,8 +22,8 @@ export default Factory.extend({
       let unknownGuest = server.create("person", {
         invitation,
         isUnknownGuest: true,
-        fullName: "",
-        nickname: ""
+        firstName: "",
+        lastName: "",
       });
       invitation.guests = [knownGuest, unknownGuest];
     }

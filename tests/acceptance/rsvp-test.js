@@ -7,16 +7,14 @@ module('Acceptance | rsvp', function(hooks) {
   setupApplicationTest(hooks);
 
   test('person match: with one match, only invitation is shown', async function(assert) {
-    await server.create('person', {fullName: 'John Doe'});
+    await server.create('person', {firstName: 'John', lastName: 'Doe'});
 
     await visit('/rsvp');
     await fillIn('#person-search input', 'John Doe');
     await click('#person-search button');
 
-    let $personHeader = $(`h4:contains(John)`);
-    assert.ok($personHeader.length !== 0, 'nickname is displayed');
-    $personHeader = $(`h4:contains(John Doe)`);
-    assert.ok($personHeader.length === 0, 'fullname is NOT displayed');
+    let $personHeader = $(`h4:contains(John Doe)`);
+    assert.ok($personHeader.length > 0, 'full name is displayed');
 
     server.db.emptyData();
   });
@@ -39,7 +37,7 @@ module('Acceptance | rsvp', function(hooks) {
       .click();
     await $('.rsvp__multiple-matches button').click();
 
-    let $personHeader = $(`h4:first:contains("${people[0].nickname}")`);
+    let $personHeader = $(`h4:first:contains("${people[0].firstName}")`);
     assert.ok(
       $personHeader.length !== 0,
       "person's name appears at top of rsvp",
@@ -169,7 +167,7 @@ module('Acceptance | rsvp', function(hooks) {
     await $(`:contains(Submit)`).click();
 
     assert.ok(
-      $(`.rsvp__individual-rsvp:first:contains(${people[0].nickname})`)
+      $(`.rsvp__individual-rsvp:first:contains(${people[0].firstName})`)
         .length === 1,
       'first rsvp contains first name',
     );
