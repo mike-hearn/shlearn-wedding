@@ -12,7 +12,7 @@ export default Controller.extend({
           filter: {
             fullName: name
           },
-          include: "invitation, invitation.guests"
+          include: "invitation.guests"
         })
         .then(people => {
           this.set("people", people);

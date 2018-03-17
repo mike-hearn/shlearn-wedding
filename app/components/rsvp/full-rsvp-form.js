@@ -20,11 +20,13 @@ export default Component.extend({
   allValidGuests: computed.filterBy(
     'guestsWithKnownPersonFirst',
     'isUnknownGuest',
-    false
+    false,
   ),
   actions: {
     submitForm(guests, invitation) {
-      invitation.save();
-    }
-  }
+      invitation.save().then(() => {
+        guests.forEach(g => g.save());
+      });
+    },
+  },
 });
