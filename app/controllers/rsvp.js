@@ -1,5 +1,6 @@
 import Controller from "@ember/controller";
 import { computed } from "@ember/object";
+import RSVP from 'rsvp';
 
 export default Controller.extend({
   singleMatch: computed.equal("peopleMatches", 1),
@@ -25,8 +26,13 @@ export default Controller.extend({
     selectPerson(person) {
       this.set("invitationLoaded", true);
       this.set("peopleMatches", 1);
-      this.set("person", person);
-      this.set("invitation", person.get("invitation"));
+      RSVP.hash({
+        person,
+        invitation: person.get("invitation")
+      }).then(model => {
+        this.set("person", model.person);
+        this.set("invitation", model.invitation);
+      })
     }
   }
 });
