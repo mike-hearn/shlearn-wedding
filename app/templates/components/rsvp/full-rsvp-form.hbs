@@ -2,11 +2,11 @@
   {{rsvp/unknown-guest-form guest=firstUnknownGuest}}
 {{else}}
 <form {{action 'submitForm' on="submit"}}>
-  {{#each allValidGuests as |guest|}}
+  {{#each allValidGuests as |guest index|}}
     <div class="rsvp__individual-rsvp mb-5">
       <h4 class="text-center">RSVP for {{guest.displayName}}</h4>
-      {{rsvp/attendance-questions guest=guest}}
-      {{rsvp/meal-questions guest=guest}}
+      {{rsvp/attendance-questions guest=guest index=index}}
+      {{rsvp/meal-questions guest=guest index=index}}
     </div>
   {{/each}}
   {{rsvp/additional-questions invitation=invitation}}
