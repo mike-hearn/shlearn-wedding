@@ -23,7 +23,8 @@ export default Component.extend({
     false
   ),
   actions: {
-    submitForm() {
+    submitForm(guests, invitation) {
+      invitation.save();
     }
   }
 });
