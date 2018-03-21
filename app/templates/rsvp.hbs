@@ -27,7 +27,7 @@
 {{/if}}
 
 {{! Case if name search matches 2 people }}
-{{#if (eq peopleMatches 2)}}
+{{#if (gt peopleMatches 1)}}
   {{rsvp/guest-picker people=people onConfirm=(action "selectPerson")}}
 {{/if}}
 
