@@ -50,7 +50,7 @@ module('Integration | Component | rsvp/full-rsvp-form', function(hooks) {
 
     await render(hbs`{{rsvp/full-rsvp-form invitation=invitation}}`);
 
-    assert.ok($(`body:contains(Unknown guest)`).length > 0);
+    assert.ok($(`body:contains(Are you bringing a guest)`).length > 0);
 
     server.db.emptyData();
   });

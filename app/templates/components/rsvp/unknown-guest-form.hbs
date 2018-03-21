@@ -1,5 +1,4 @@
 {{! are you bringing a guest? yes/no}}
-<p>Unknown guest.</p>
 <form {{action 'updateGuest' guest isBringingGuest on="submit"}}>
   <p>Are you bringing a guest?</p>
   {{#radio-button
@@ -18,7 +17,7 @@
   {{/radio-button}}
   {{#if isBringingGuest}}
     <p>What is your guest's name?</p>
-    {{input class="input-guest-name" type="text" value=guest.fullName}}
+    {{input class="input-guest-name" placeholder="Enter guest name" type="text" value=guest.nameInput}}
   {{/if}}
   <button type="submit">Submit</button>
 </form>
