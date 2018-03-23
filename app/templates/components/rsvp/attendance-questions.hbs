@@ -1,10 +1,6 @@
 {{! Choose which days to attend}}
 <div class="form-group">
-  {{#if (eq guest person)}}
-    <p>{{guest.firstName}}, which days can you make it?</p>
-  {{else}}
-    <p>Which days can {{guest.displayName}} make it?</p>
-  {{/if}}
+  <p>Please let us know which days will {{guest.displayName}} attend:</p>
 
   <div class="form-check">
     {{#radio-button
@@ -13,7 +9,7 @@
       groupValue=guest.attendance
       changed="attendanceChanged"
       classNames="radio-button-row"}}
-      <span><b>Friday &amp; Saturday</b> <span class="text-small">(Welcome Dinner + Ceremony/Reception)</span></span>
+      <span><b>Friday and Saturday</b> <span class="text-small">(Welcome Reception and Wedding Day)</span></span>
     {{/radio-button}}
   </div>
 
@@ -23,7 +19,7 @@
       value="Saturday Only"
       groupValue=guest.attendance
       classNames="radio-button-row"}}
-      <span><b>Saturday Only</b> (Ceremony/Reception)</span>
+      <span><b>Saturday</b> (Wedding Day)</span>
     {{/radio-button}}
   </div>
 
@@ -33,7 +29,7 @@
       value="Cannot Attend"
       groupValue=guest.attendance
       classNames="radio-button-row"}}
-      <span>Regretfully cannot attend.</span>
+      <span>Unable to attend</span>
     {{/radio-button}}
   </div>
 </div>

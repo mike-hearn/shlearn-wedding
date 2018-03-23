@@ -4,7 +4,6 @@
 <form {{action 'submitForm' allValidGuests invitation on="submit"}}>
   {{#each allValidGuests as |guest index|}}
     <div class="rsvp__individual-rsvp mb-5">
-      <h4 class="text-center">RSVP for {{guest.displayName}}</h4>
       {{rsvp/attendance-questions guest=guest index=index}}
       {{rsvp/meal-questions guest=guest index=index}}
     </div>

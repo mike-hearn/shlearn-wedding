@@ -19,7 +19,7 @@
     "@types/ember": "^2.8.15",
     "bootstrap": "^4.0.0",
     "broccoli-asset-rev": "^2.4.5",
-    "cypress": "^2.1.0",
+    "cypress": "2.1.0",
     "ember-ajax": "^3.0.0",
     "ember-bootstrap": "^1.2.1",
     "ember-cli": "~3.0.0",
