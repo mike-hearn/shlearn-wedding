@@ -1,26 +1,28 @@
-<form {{action 'updateGuest' guest isBringingGuest on="submit"}}>
+<form class="col-md-4 mx-auto text-center" {{action 'updateGuest' guest isBringingGuest on="submit"}}>
   <p>Are you bringing a guest?</p>
-  <div class="form-check">
-    {{#radio-button
-      name="bringing-guest"
-      value=true
-      groupValue=isBringingGuest
-      classNames="bringing-guest-radio-button yes"}}
-      <span>Yes</span>
-    {{/radio-button}}
-  </div>
-  <div class="form-check mb-2">
-    {{#radio-button
-      name="bringing-guest"
-      value=false
-      groupValue=isBringingGuest
-      classNames="bringing-guest-radio-button no"}}
-      <span>No</span>
-    {{/radio-button}}
+  <div class="row justify-content-center mb-2">
+    <div class="form-check pl-0">
+      {{#radio-button
+        name="bringing-guest"
+        value=true
+        groupValue=isBringingGuest
+        classNames="bringing-guest-radio-button yes"}}
+        <span>Yes</span>
+      {{/radio-button}}
+    </div>
+    <div class="form-check">
+      {{#radio-button
+        name="bringing-guest"
+        value=false
+        groupValue=isBringingGuest
+        classNames="bringing-guest-radio-button no"}}
+        <span>No</span>
+      {{/radio-button}}
+    </div>
   </div>
   {{#if isBringingGuest}}
     <p>What is your guest's name?</p>
-    {{input class="input-guest-name form-control col-sm-3 mb-3" placeholder="Enter guest name" type="text" value=guest.nameInput}}
+    {{input class="input-guest-name form-control mb-3 text-center" placeholder="Enter guest name" type="text" value=guest.nameInput}}
   {{/if}}
   <button class="btn" type="submit">Submit</button>
 </form>

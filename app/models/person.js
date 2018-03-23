@@ -15,6 +15,7 @@ export default DS.Model.extend({
   }),
   internalName: DS.attr("string"), // either their name, or description of who they are ("Annie's +1")
   isUnknownGuest: DS.attr("boolean"),     // indicates whether they can initiate RSVP
+  isPlusOne: DS.attr("boolean"),     // indicates whether they can initiate RSVP
   attendance: DS.attr("string"),   // fri, frisat, none
   foodChoice: DS.attr("string"),   // beef, chicken, pasta
   invitation: DS.belongsTo("invitation")
