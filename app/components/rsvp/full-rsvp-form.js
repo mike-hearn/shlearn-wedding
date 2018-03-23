@@ -27,6 +27,7 @@ export default Component.extend({
       invitation.save().then(() => {
         guests.forEach(g => g.save());
       });
+      this.get('toggleHasSubmittedRsvp')(true);
     },
   },
 });

@@ -32,7 +32,11 @@
 {{/if}}
 
 {{! Case if exact one person is matched}}
-{{#if invitation}}
-  {{rsvp/full-rsvp-form invitation=invitation personInitiatedRSVP=person}}
+{{#if (and (not hasSubmittedRsvp) invitation)}}
+  {{rsvp/full-rsvp-form invitation=invitation personInitiatedRSVP=person toggleHasSubmittedRsvp=(action (mut hasSubmittedRsvp) true)}}
+{{/if}}
+
+{{#if hasSubmittedRsvp}}
+  Success.
 {{/if}}
 
