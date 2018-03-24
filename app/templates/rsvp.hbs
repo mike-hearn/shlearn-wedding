@@ -33,13 +33,27 @@
 
 {{! Case if exact one person is matched}}
 {{#if (and (not hasSubmittedRsvp) invitation)}}
-  {{rsvp/full-rsvp-form invitation=invitation personInitiatedRSVP=person toggleHasSubmittedRsvp=(action (mut hasSubmittedRsvp) true)}}
+  {{rsvp/full-rsvp-form
+    invitation=invitation
+    personInitiatedRSVP=person
+    hasBeenSubmitted=(action 'hasBeenSubmitted')
+  }}
 {{/if}}
 
 {{#if hasSubmittedRsvp}}
   <p class="success-message">
     We have received your RSVP! Your responses are below. If you would like to
     make changes, please update and re-submit by June 1, 2018.
+
+    <hr />
+
+    {{#each confirmedGuests as |guest|}}
+      <h4 class="mt-3 mb-3">{{guest.fullName}}</h4>
+      <ul>
+        <li><b>Attending</b>: {{guest.attendance}}</li>
+        <li><b>Meal</b>: {{guest.foodChoice}}</li>
+      </ul>
+    {{/each}}
   </p>
 {{/if}}
 

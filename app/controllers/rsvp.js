@@ -33,6 +33,10 @@ export default Controller.extend({
         this.set("person", model.person);
         this.set("invitation", model.invitation);
       })
+    },
+    hasBeenSubmitted(guests) {
+      this.set("hasSubmittedRsvp", true);
+      this.set("confirmedGuests", guests);
     }
   }
 });
