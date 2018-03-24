@@ -18,6 +18,12 @@ export default function(server) {
     case 'withTwoGuests':
       server.create('invitation', 'withTwoGuests');
       break;
+    // Returns two (or three?) names, then after choosing a name it asks for +1
+    // name
+    case 'fuzzyMatchWithUnknownGuest':
+      server.create('invitation', 'withTwoGuestsOneUnknown');
+      server.create('person', {firstName: 'Dontchoose'})
+      break;
     default:
       server.create('invitation', 'withTwoGuestsOneUnknown');
   }
