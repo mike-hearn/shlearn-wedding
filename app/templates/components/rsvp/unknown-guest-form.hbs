@@ -22,7 +22,8 @@
   </div>
   {{#if isBringingGuest}}
     <p>What is your guest's name?</p>
-    {{input class="input-guest-name form-control mb-3 text-center" placeholder="Enter guest name" type="text" value=guest.nameInput}}
+    {{input class="input-guest-name form-control mb-1 text-center" placeholder="Enter guest name" type="text" value=guest.nameInput}}
+    <p class="small mb-4">(Optional. You can RSVP now and add your guest's name later.)</p>
   {{/if}}
   <button class="btn" type="submit" disabled={{eq isBringingGuest undefined}}>Submit</button>
 </form>

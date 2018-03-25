@@ -41,26 +41,31 @@
 {{/if}}
 
 {{#if hasSubmittedRsvp}}
-  <p class="success-message">
+  <p class="success-message text-center">
     We have received your RSVP! Your responses are below. If you would like to
     make changes, please update and re-submit by June 1, 2018.
-
-    <hr />
-
-    {{#each confirmedGuests as |guest|}}
-      <h4 class="mt-3 mb-1">{{guest.fullName}}</h4>
-      <ul>
-        <li><b>Attending</b>: {{guest.attendance}}</li>
-        <li><b>Meal</b>: {{guest.foodChoice}}</li>
-      </ul>
-    {{/each}}
-
-    <h4>Additional Notes</h4>
-    <ul>
-      <li><b>Music</b>: "{{invitation.musicSuggestions}}"</li>
-      <li><b>Other</b>: "{{invitation.additionalNotes}}"</li>
-    </ul>
-
   </p>
+  <p class="success-message text-center">
+    <i>If you plan to stay at the Grafton Inn and have not already booked a
+      room, please do so as soon as possible (see <a
+        href="/where-to-stay">Where to Stay</a>).</i>
+  </p>
+
+  <hr />
+
+  {{#each confirmedGuests as |guest|}}
+    <h4 class="mt-3 mb-1">{{guest.fullName}}</h4>
+    <ul>
+      <li><b>Attending</b>: {{guest.attendance}}</li>
+      <li><b>Meal</b>: {{guest.foodChoice}}</li>
+    </ul>
+  {{/each}}
+
+  <h4>Additional Notes</h4>
+  <ul>
+    <li><b>Music</b>: "{{invitation.musicSuggestions}}"</li>
+    <li><b>Other</b>: "{{invitation.additionalNotes}}"</li>
+  </ul>
+
 {{/if}}
 

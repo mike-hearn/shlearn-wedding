@@ -1,6 +1,6 @@
 {{! Choose which days to attend}}
 <div class="form-group">
-  <p>Please let us know which days {{guest.displayName}} will attend:</p>
+  <p>Please let us know if {{guest.displayName}} will attend:</p>
 
   <div class="form-check">
     {{#radio-button
@@ -25,7 +25,7 @@
   <div class="form-check">
     {{#radio-button
       name=(concat 'days-' index)
-      value="Cannot Attend"
+      value="Unable to attend"
       groupValue=guest.attendance
       classNames="radio-button-row"}}
       <span>Unable to attend</span>
