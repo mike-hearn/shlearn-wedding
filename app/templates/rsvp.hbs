@@ -48,12 +48,19 @@
     <hr />
 
     {{#each confirmedGuests as |guest|}}
-      <h4 class="mt-3 mb-3">{{guest.fullName}}</h4>
+      <h4 class="mt-3 mb-1">{{guest.fullName}}</h4>
       <ul>
         <li><b>Attending</b>: {{guest.attendance}}</li>
         <li><b>Meal</b>: {{guest.foodChoice}}</li>
       </ul>
     {{/each}}
+
+    <h4>Additional Notes</h4>
+    <ul>
+      <li><b>Music</b>: "{{invitation.musicSuggestions}}"</li>
+      <li><b>Other</b>: "{{invitation.additionalNotes}}"</li>
+    </ul>
+
   </p>
 {{/if}}
 
