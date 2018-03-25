@@ -1,0 +1,76 @@
+{
+  "links": {
+    "first":
+      "http://localhost:8000/people/?filter%5BfullName%5D=Michael+Hearn&format=vnd.api%2Bjson&include=invitation.guests&page=1",
+    "last":
+      "http://localhost:8000/people/?filter%5BfullName%5D=Michael+Hearn&format=vnd.api%2Bjson&include=invitation.guests&page=1",
+    "next": null,
+    "prev": null
+  },
+  "data": [
+    {
+      "type": "people",
+      "id": "2",
+      "attributes": {
+        "title": null,
+        "first-name": "Michael",
+        "last-name": "Hearn",
+        "is-unknown-guest": false,
+        "is-plus-one": false,
+        "attendance": "Friday and Saturday",
+        "food-choice": "Beef"
+      },
+      "relationships": {
+        "invitation": {"data": {"type": "invitations", "id": "1"}}
+      }
+    }
+  ],
+  "included": [
+    {
+      "type": "invitations",
+      "id": "1",
+      "attributes": {
+        "music-suggestions": "Nope!",
+        "additional-notes": "Nothing else."
+      },
+      "relationships": {
+        "guests": {
+          "data": [{"type": "people", "id": "1"}, {"type": "people", "id": "2"}]
+        }
+      }
+    },
+    {
+      "type": "people",
+      "id": "1",
+      "attributes": {
+        "title": null,
+        "first-name": "Ashley",
+        "last-name": "Mas",
+        "is-unknown-guest": false,
+        "is-plus-one": false,
+        "attendance": "Friday and Saturday",
+        "food-choice": "Chicken"
+      },
+      "relationships": {
+        "invitation": {"data": {"type": "invitations", "id": "1"}}
+      }
+    },
+    {
+      "type": "people",
+      "id": "2",
+      "attributes": {
+        "title": null,
+        "first-name": "Michael",
+        "last-name": "Hearn",
+        "is-unknown-guest": false,
+        "is-plus-one": false,
+        "attendance": "Friday and Saturday",
+        "food-choice": "Beef"
+      },
+      "relationships": {
+        "invitation": {"data": {"type": "invitations", "id": "1"}}
+      }
+    }
+  ],
+  "meta": {"pagination": {"page": 1, "pages": 1, "count": 1}}
+}
