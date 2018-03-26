@@ -104,15 +104,4 @@ describe('RSVP Form', () => {
       cy.get('.rsvp-for-guest-0').should('have.length.above', 0);
     });
   });
-  context('xhr test', () => {
-    it.only('test to see if I can assert against a request', () => {
-      cy.server();
-      cy
-        .route('GET', 'http://localhost:4200/people/*', 'fixture:people')
-        .as('people-api');
-      cy.scenario('withTwoGuests', {passthrough: true});
-      cy.visitAndWait('/rsvp');
-      cy.enterGuestName();
-    });
-  });
 });
