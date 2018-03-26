@@ -9,7 +9,7 @@ ADD bower.json /app/bower.json
 ADD yarn.lock /app/yarn.lock
 
 # Run app as non-root
-RUN useradd -m appuser
+RUN adduser appuser --disabled-password --gecos "" --uid 1000
 RUN chown -R appuser:appuser /app
 USER appuser
 

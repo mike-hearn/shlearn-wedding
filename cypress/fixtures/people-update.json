@@ -1,0 +1,36 @@
+{
+  "data": {
+    "type": "people",
+    "id": "73",
+    "attributes": {
+      "title": null,
+      "first-name": "John",
+      "last-name": "Guest",
+      "is-unknown-guest": false,
+      "is-plus-one": true,
+      "attendance": "Friday and Saturday",
+      "food-choice": "Beef"
+    },
+    "relationships": {
+      "invitation": {"data": {"type": "invitations", "id": "41"}}
+    }
+  },
+  "included": [
+    {
+      "type": "invitations",
+      "id": "41",
+      "attributes": {
+        "music-suggestions": "Anything will do.\n\nNew line test.",
+        "additional-notes": "So happy for you guys."
+      },
+      "relationships": {
+        "guests": {
+          "data": [
+            {"type": "people", "id": "72"},
+            {"type": "people", "id": "73"}
+          ]
+        }
+      }
+    }
+  ]
+}

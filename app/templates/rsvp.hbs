@@ -1,3 +1,71 @@
 <h2>RSVP</h2>
 <img class="vermont-divider" src="/static/vermontseparator.svg" alt="divider">
-<p class="to-come">To come.</p>
+
+{{#unless peopleMatches}}
+  <div id="person-search" class="people-search text-center">
+    <p>Please enter your full name:</p>
+      <form {{action 'searchPeople' searchValue on="submit"}}>
+        <div class="form-row align-items-center justify-content-center">
+          <div class="col-auto">
+            <label class="sr-only">Enter Your Name</label>
+            {{input type="text" value=searchValue class="form-control enter-full-name" placeholder="Enter your full name"}}
+          </div>
+          <div class="col-auto">
+            <button type="submit" class="btn" disabled={{not searchValue}}>Submit</button>
+          </div>
+        </div>
+      </form>
+  </div>
+{{/unless}}
+
+{{! Failure case, if no one is found }}
+{{#if (eq peopleMatches 0)}}
+  <div class="text-center rsvp__no-guests">
+    <p class="mt-2">We couldn't find any guests by that name.</p>
+    <p>If this is an error, please send an email to <a href="mailto:rsvp@mikehearn.com">rsvp@mikehearn.com</a>.</p>
+  </div>
+{{/if}}
+
+{{! Case if name search matches 2 people }}
+{{#if (gt peopleMatches 1)}}
+  {{rsvp/guest-picker people=people onConfirm=(action "selectPerson")}}
+{{/if}}
+
+{{! Case if exact one person is matched}}
+{{#if (and (not hasSubmittedRsvp) invitation)}}
+  {{rsvp/full-rsvp-form
+    invitation=invitation
+    personInitiatedRSVP=person
+    hasBeenSubmitted=(action 'hasBeenSubmitted')
+  }}
+{{/if}}
+
+{{#if hasSubmittedRsvp}}
+  <p class="success-message text-center">
+    We have received your RSVP! Your responses are below. If you would like to
+    make changes, please update and re-submit by June 1, 2018.
+  </p>
+  <p class="success-message text-center">
+    <i>If you plan to stay at the Grafton Inn and have not already booked a
+      room, please do so as soon as possible (see <a
+        href="/where-to-stay">Where to Stay</a>).</i>
+  </p>
+
+  <hr />
+
+  {{#each confirmedGuests as |guest|}}
+    <h4 class="mt-3 mb-1">{{guest.fullName}}</h4>
+    <ul>
+      <li><b>Attending</b>: {{guest.attendance}}</li>
+      <li><b>Meal</b>: {{guest.foodChoice}}</li>
+    </ul>
+  {{/each}}
+
+  <h4>Additional Notes</h4>
+  <ul>
+    <li><b>Music</b>: "{{invitation.musicSuggestions}}"</li>
+    <li><b>Other</b>: "{{invitation.additionalNotes}}"</li>
+  </ul>
+
+{{/if}}
+

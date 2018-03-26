@@ -1,0 +1,34 @@
+{{! Choose which days to attend}}
+<div class="form-group">
+  <p>Please let us know if {{guest.displayName}} will attend:</p>
+
+  <div class="form-check">
+    {{#radio-button
+      name=(concat 'days-' index)
+      value="Friday and Saturday"
+      groupValue=guest.attendance
+      classNames="radio-button-row"}}
+      <span><b>Friday and Saturday</b> <span class="text-small">(Welcome Reception and Wedding Day)</span></span>
+    {{/radio-button}}
+  </div>
+
+  <div class="form-check">
+    {{#radio-button
+      name=(concat 'days-' index)
+      value="Saturday Only"
+      groupValue=guest.attendance
+      classNames="radio-button-row"}}
+      <span><b>Saturday</b> (Wedding Day)</span>
+    {{/radio-button}}
+  </div>
+
+  <div class="form-check">
+    {{#radio-button
+      name=(concat 'days-' index)
+      value="Unable to attend"
+      groupValue=guest.attendance
+      classNames="radio-button-row"}}
+      <span>Unable to attend</span>
+    {{/radio-button}}
+  </div>
+</div>

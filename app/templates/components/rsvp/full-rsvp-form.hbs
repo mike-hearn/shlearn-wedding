@@ -1,0 +1,16 @@
+{{#if unknownGuests}}
+  {{rsvp/unknown-guest-form guest=firstUnknownGuest}}
+{{else}}
+<form {{action 'submitForm' allValidGuests invitation on="submit"}}>
+  {{#each allValidGuests as |guest index|}}
+    <div class="rsvp__individual-rsvp rsvp-for-guest-{{index}} mb-5">
+      {{rsvp/attendance-questions guest=guest index=index}}
+      {{rsvp/meal-questions guest=guest index=index}}
+    </div>
+  {{/each}}
+  {{rsvp/additional-questions invitation=invitation}}
+  <div class="row justify-content-center">
+    <button type="submit" class="btn">Submit RSVP</button>
+  </div>
+</form>
+{{/if}}

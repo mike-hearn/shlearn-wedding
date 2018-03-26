@@ -1,0 +1,49 @@
+{
+  "data": {
+    "type": "invitations",
+    "id": "41",
+    "attributes": {
+      "music-suggestions": "Anything will do.\n\nNew line test.",
+      "additional-notes": "So happy for you guys."
+    },
+    "relationships": {
+      "guests": {
+        "data": [{"type": "people", "id": "72"}, {"type": "people", "id": "73"}]
+      }
+    }
+  },
+  "included": [
+    {
+      "type": "people",
+      "id": "72",
+      "attributes": {
+        "title": null,
+        "first-name": "Mallika",
+        "last-name": "Dattatreya",
+        "is-unknown-guest": false,
+        "is-plus-one": false,
+        "attendance": "",
+        "food-choice": ""
+      },
+      "relationships": {
+        "invitation": {"data": {"type": "invitations", "id": "41"}}
+      }
+    },
+    {
+      "type": "people",
+      "id": "73",
+      "attributes": {
+        "title": null,
+        "first-name": "",
+        "last-name": "",
+        "is-unknown-guest": true,
+        "is-plus-one": true,
+        "attendance": "",
+        "food-choice": ""
+      },
+      "relationships": {
+        "invitation": {"data": {"type": "invitations", "id": "41"}}
+      }
+    }
+  ]
+}

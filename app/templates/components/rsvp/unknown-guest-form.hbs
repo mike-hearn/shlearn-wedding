@@ -1,0 +1,29 @@
+<form class="guest-name-form col-md-6 mx-auto text-center" {{action 'updateGuest' guest isBringingGuest on="submit"}}>
+  <p>Are you bringing a guest?</p>
+  <div class="row justify-content-center mb-2">
+    <div class="form-check pl-0">
+      {{#radio-button
+        name="bringing-guest"
+        value=true
+        groupValue=isBringingGuest
+        classNames="bringing-guest-radio-button yes"}}
+        <span>Yes</span>
+      {{/radio-button}}
+    </div>
+    <div class="form-check">
+      {{#radio-button
+        name="bringing-guest"
+        value=false
+        groupValue=isBringingGuest
+        classNames="bringing-guest-radio-button no"}}
+        <span>No</span>
+      {{/radio-button}}
+    </div>
+  </div>
+  {{#if isBringingGuest}}
+    <p>What is your guest's name?</p>
+    {{input class="input-guest-name form-control mb-1 text-center" placeholder="Enter guest name" type="text" value=guest.nameInput}}
+    <p class="small mb-4">(Optional. You can RSVP now and add your guest's name later.)</p>
+  {{/if}}
+  <button class="btn" type="submit" disabled={{eq isBringingGuest undefined}}>Submit</button>
+</form>

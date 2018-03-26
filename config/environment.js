@@ -5,6 +5,7 @@ module.exports = function(environment) {
     modulePrefix: 'shlearn-wedding',
     environment,
     rootURL: '/',
+    apiURL: process.env.API_URL,
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
