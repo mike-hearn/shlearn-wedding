@@ -76,7 +76,7 @@ module('Integration | Component | rsvp/full-rsvp-form', function(hooks) {
 
 
     assert.ok(
-      $(`.rsvp__individual-rsvp > h4:first:contains(${people[0].firstName})`)
+      $(`.rsvp__individual-rsvp:first:contains(${people[0].firstName})`)
         .length > 0,
       'the known person is listed first',
     );

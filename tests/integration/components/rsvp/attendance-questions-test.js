@@ -15,7 +15,7 @@ module('Integration | Component | rsvp/attendance-questions', function(hooks) {
 
     await render(hbs`{{rsvp/attendance-questions guest=guest}}`);
 
-    assert.ok($(`body:contains('Which days can')`).length);
+    assert.ok($(`body:contains('let us know if')`).length);
 
     server.db.emptyData();
   });
