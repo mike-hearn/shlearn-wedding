@@ -2,7 +2,19 @@ version: "3.3"
 services:
   web:
     image: mikehearn/shlearn-wedding:latest
-    ports:
-      - "80:8000"
+    networks:
+      - traefik_public
+    environment:
+      - PORT=8000
+    command: node fastboot-server.js
     deploy:
       replicas: 1
+      labels:
+        - "traefik.backend=http"
+        - "traefik.port=8000"
+        - "traefik.frontend.rule=PathPrefix:/"
+        - "traefik.docker.network=traefik_public"
+
+networks:
+  traefik_public:
+    external: true
