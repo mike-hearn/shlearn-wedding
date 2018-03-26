@@ -16,7 +16,7 @@ USER appuser
 # Add files & build app
 RUN yarn && bower install --allow-root
 ADD . /app/
-RUN yarn run build
+RUN yarn run build:production
 
 # Serve app
 CMD PORT=8000 node fastboot-server.js
