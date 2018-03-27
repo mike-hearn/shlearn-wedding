@@ -63,8 +63,16 @@
 
   <h4>Additional Notes</h4>
   <ul>
-    <li><b>Music</b>: "{{invitation.musicSuggestions}}"</li>
-    <li><b>Other</b>: "{{invitation.additionalNotes}}"</li>
+    {{#if invitation.musicSuggestions}}
+      <li><b>Music</b>: "{{invitation.musicSuggestions}}"</li>
+    {{else}}
+      <li><b>Music</b>: None</li>
+    {{/if}}
+    {{#if invitation.additionalNotes}}
+      <li><b>Other</b>: "{{invitation.additionalNotes}}"</li>
+    {{else}}
+      <li><b>Other</b>: None</li>
+    {{/if}}
   </ul>
 
 {{/if}}
