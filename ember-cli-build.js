@@ -8,6 +8,9 @@ module.exports = function(defaults) {
       'bootstrapVersion': 4,
       'importBootstrapFont': false,
       'importBootstrapCSS': false
+    },
+    fingerprint: {
+      exclude: ['website_photos']
     }
   });
 
