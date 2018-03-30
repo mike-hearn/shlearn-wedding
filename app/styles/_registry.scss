@@ -1,0 +1,16 @@
+.registry-image {
+  max-width: 400px;
+  width: 80%;
+  margin-bottom: 30px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.registry-image.amazon {
+  border: 1px solid #fc9a2e;
+}
+
+.registry-image.zola {
+  border: 1px solid #36607f;
+}
