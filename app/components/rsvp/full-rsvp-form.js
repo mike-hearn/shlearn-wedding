@@ -23,11 +23,16 @@ export default Component.extend({
     false,
   ),
   actions: {
-    submitForm(guests, invitation) {
+    submitForm(guests, knownGuests, invitation) {
       invitation.save().then(() => {
-        guests.forEach(g => g.save());
+        guests.forEach(g => {
+          if (!g.get('attendance')) {
+            g.set('attendance', 'Unable to attend');
+          }
+          g.save()
+        });
       });
-      this.get('hasBeenSubmitted')(guests);
+      this.get('hasBeenSubmitted')(knownGuests);
     },
   },
 });

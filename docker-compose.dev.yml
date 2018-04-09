@@ -2,23 +2,6 @@ version: "3.3"
 services:
   web:
     build: .
-    user: appuser
-    expose:
-      - "4200"
     ports:
-      - "49159:49159"
-    volumes:
-      - ${PWD}:${PWD}
-    working_dir: ${PWD}
-    networks:
-      - web
-    cap_add:
-      - SYS_ADMIN
-    environment:
-      TRAVIS: "yes"
-    command: npm run start -- --host=0.0.0.0 --port=4200 --live-reload-port=49159
-
-networks:
-  web:
-    external:
-      name: traefik_default
+      - "4200:4200"
+    command: ember s --proxy=http://localhost:8000
