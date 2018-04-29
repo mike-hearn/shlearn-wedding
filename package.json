@@ -63,6 +63,7 @@
   },
   "private": true,
   "dependencies": {
+    "dotenv": "^5.0.1",
     "fastboot-app-server": "^1.0.1"
   }
 }
